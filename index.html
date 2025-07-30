@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meal Miles – Loyalty that Brings Them Back</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+  <!-- Header / Nav -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+      <a href="#" class="text-2xl font-bold text-red-600">Meal Miles</a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#features" class="hover:text-red-600">Features</a>
+        <a href="#how-it-works" class="hover:text-red-600">How It Works</a>
+        <a href="#contact" class="hover:text-red-600">Contact</a>
+        <a href="#demo" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Get a Demo</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden bg-white shadow-lg hidden">
+      <a href="#features" class="block px-4 py-2 hover:bg-gray-100">Features</a>
+      <a href="#how-it-works" class="block px-4 py-2 hover:bg-gray-100">How It Works</a>
+      <a href="#contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+      <a href="#demo" class="block px-4 py-2 text-white bg-red-600 hover:bg-red-700">Get a Demo</a>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- Hero -->
+    <section id="hero" class="bg-gray-50 py-24">
+      <div class="max-w-3xl mx-auto text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Turn Diners into Devoted Regulars</h1>
+        <p class="text-xl text-gray-700 mb-8">
+          Meal Miles is the white-label loyalty platform made just for restaurants.
+          Easy setup, rich analytics, and seamless guest experiences—all in one app.
+        </p>
+        <a href="#demo" class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-red-700">
+          Request a Demo
+        </a>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Partner Benefits</h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="p-6 bg-white rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Custom Rewards</h3>
+            <p class="text-gray-600">
+              Define point-earning rules that match your menu and margins—buffets, BOGO, percentage discounts, you name it.
+            </p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Real-Time Analytics</h3>
+            <p class="text-gray-600">
+              Track customer engagement, redemption rates, and revenue lift from one sleek dashboard.
+            </p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Seamless Integration</h3>
+            <p class="text-gray-600">
+              Plug into your existing POS or use our intuitive web portal. No costly hardware required.
+            </p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Guest Insights</h3>
+            <p class="text-gray-600">
+              Learn who your best customers are and send targeted offers to keep them coming back.
+            </p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Mobile Ordering</h3>
+            <p class="text-gray-600">
+              Let loyal guests order ahead or book tables right in your branded app.
+            </p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">White-Label App</h3>
+            <p class="text-gray-600">
+              Your logo, your colors, your app. Meal Miles runs in the background.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="bg-gray-50 py-20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">How It Works</h2>
+        <div class="grid gap-10 md:grid-cols-3">
+          <div>
+            <div class="text-red-600 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 7v4a1 1 0 001 1h3m10 0h3a1 1 0 001-1V7m0 10v-4a1 1 0 00-1-1h-3m-10 0H4a1 1 0 00-1 1v4"/>
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold mb-2">1. Setup in Minutes</h4>
+            <p class="text-gray-600">
+              Sign up, configure your point rules and rewards, and deploy to iOS/Android instantly.
+            </p>
+          </div>
+          <div>
+            <div class="text-red-600 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 16h-1v-4h-1m4 8H8a4 4 0 01-4-4V8a4 4 0 014-4h5"/>
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold mb-2">2. Earn & Track</h4>
+            <p class="text-gray-600">
+              Guests collect points on every visit. Watch loyalty metrics climb in your dashboard.
+            </p>
+          </div>
+          <div>
+            <div class="text-red-600 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 13l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold mb-2">3. Redeem & Reward</h4>
+            <p class="text-gray-600">
+              Guests redeem points through the app. Increase basket size with exclusive offers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="demo" class="py-20 text-center">
+      <div class="max-w-2xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-4">Ready to Grow Your Loyal Fanbase?</h2>
+        <p class="text-gray-700 mb-8">
+          Schedule a personalized demo and see how Meal Miles can supercharge repeat business.
+        </p>
+        <a href="#contact" class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700">
+          Contact Sales
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-gray-50 py-20">
+      <div class="max-w-xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-6">Get in Touch</h2>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+          <input type="text" name="name" placeholder="Your Name" required
+                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"/>
+          <input type="email" name="email" placeholder="Your Email" required
+                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"/>
+          <input type="text" name="restaurant" placeholder="Restaurant Name" required
+                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"/>
+          <textarea name="message" rows="4" placeholder="How can we help?"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
+          <button type="submit"
+                  class="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6">
+    <div class="max-w-6xl mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 Meal Miles. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle script -->
+  <script>
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
