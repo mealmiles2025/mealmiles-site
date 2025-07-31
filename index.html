@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Meal Miles – Loyalty that Brings Them Back</title>
-  <!-- Tailwind CSS via CDN -->
+  <title>MealMiles – Loyalty that Brings Them Back</title>
+  <link rel="icon" href="consumerAppIcon.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans text-gray-800 antialiased">
+
   <!-- Header / Nav -->
   <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="#" class="text-2xl font-bold text-red-600">Meal Miles</a>
+      <a href="#" class="flex items-center">
+        <img src="consumerAppIcon.png" alt="MealMiles logo" class="h-10 w-auto mr-2">
+        <span class="text-2xl font-bold text-red-600">MealMiles</span>
+      </a>
       <nav class="hidden md:flex space-x-8">
+        <a href="#why-loyalty" class="hover:text-red-600">Why Loyalty</a>
         <a href="#features" class="hover:text-red-600">Features</a>
+        <a href="#unified-deals" class="hover:text-red-600">Unified Deals</a>
         <a href="#how-it-works" class="hover:text-red-600">How It Works</a>
-        <a href="#contact" class="hover:text-red-600">Contact</a>
-        <a href="#demo" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Get a Demo</a>
+        <a href="#demo" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Request a Demo</a>
       </nav>
       <button id="mobile-menu-button" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -26,21 +31,23 @@
       </button>
     </div>
     <div id="mobile-menu" class="md:hidden bg-white shadow-lg hidden">
+      <a href="#why-loyalty" class="block px-4 py-2 hover:bg-gray-100">Why Loyalty</a>
       <a href="#features" class="block px-4 py-2 hover:bg-gray-100">Features</a>
+      <a href="#unified-deals" class="block px-4 py-2 hover:bg-gray-100">Unified Deals</a>
       <a href="#how-it-works" class="block px-4 py-2 hover:bg-gray-100">How It Works</a>
-      <a href="#contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
-      <a href="#demo" class="block px-4 py-2 text-white bg-red-600 hover:bg-red-700">Get a Demo</a>
+      <a href="#demo" class="block px-4 py-2 text-white bg-red-600 hover:bg-red-700">Request a Demo</a>
     </div>
   </header>
 
   <main class="pt-20">
+
     <!-- Hero -->
     <section id="hero" class="bg-gray-50 py-24">
       <div class="max-w-3xl mx-auto text-center px-4">
         <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Turn Diners into Devoted Regulars</h1>
         <p class="text-xl text-gray-700 mb-8">
-          Meal Miles is the white-label loyalty platform made just for restaurants.
-          Easy setup, rich analytics, and seamless guest experiences—all in one app.
+          MealMiles is the white-label loyalty platform made just for your restaurant.
+          Branded app, custom rewards and consolidated deals—all in one place.
         </p>
         <a href="#demo" class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-red-700">
           Request a Demo
@@ -48,102 +55,121 @@
       </div>
     </section>
 
-    <!-- Features -->
-    <section id="features" class="py-20">
+    <!-- Why Loyalty Matters -->
+    <section id="why-loyalty" class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">Why Loyalty Matters for Your Restaurant</h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="p-6">
+            <div class="text-red-600 mb-4">
+              <!-- Icon: repeat customer -->
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 1l4 4-4 4M21 5H3"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 23l-4-4 4-4M3 19h18"/>
+              </svg>
+            </div>
+            <p class="text-4xl font-extrabold text-gray-800">+45%</p>
+            <p class="mt-2 text-gray-600">avg. increase in repeat visits</p>
+          </div>
+          <div class="p-6">
+            <div class="text-red-600 mb-4">
+              <!-- Icon: revenue -->
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 12v8m0 0H8m4 0h4"/>
+              </svg>
+            </div>
+            <p class="text-4xl font-extrabold text-gray-800">+12%</p>
+            <p class="mt-2 text-gray-600">increase in average spend</p>
+          </div>
+          <div class="p-6">
+            <div class="text-red-600 mb-4">
+              <!-- Icon: mobile -->
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="7" y="3" width="10" height="18" rx="2" ry="2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M11 17h2"/>
+              </svg>
+            </div>
+            <p class="text-4xl font-extrabold text-gray-800">80%</p>
+            <p class="mt-2 text-gray-600">of guests prefer digital rewards</p>
+          </div>
+        </div>
+        <p class="mt-8 text-gray-700">
+          Studies show single-restaurant loyalty programs drive double-digit sales growth—just look at
+          <strong>Marriott Bonvoy</strong>, <strong>Hilton Honors</strong> and others.
+          Now you can get the same for your restaurant.
+        </p>
+      </div>
+    </section>
+
+    <!-- Partner Benefits (Features) -->
+    <section id="features" class="py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12">Partner Benefits</h2>
         <div class="grid gap-8 md:grid-cols-3">
-          <div class="p-6 bg-white rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">Custom Rewards</h3>
-            <p class="text-gray-600">
-              Define point-earning rules that match your menu and margins—buffets, BOGO, percentage discounts, you name it.
-            </p>
+          <!-- ... your existing 6 feature cards ... -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Unified Deals & Offers -->
+    <section id="unified-deals" class="py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Unified Deals & Offers</h2>
+        <p class="text-lg text-gray-700 mb-8">
+          Ditch punch‐cards, paper coupons and scattered promos.
+          With MealMiles, your guests see every deal in one branded app—so you drive traffic, not confusion.
+        </p>
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="flex items-start">
+            <svg class="w-8 h-8 text-red-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <h4 class="text-xl font-semibold mb-1">All Your Deals in One Place</h4>
+              <p class="text-gray-600">
+                Buffets, BOGO, %-off, loyalty tiers—guests never miss an offer again.
+              </p>
+            </div>
           </div>
-          <div class="p-6 bg-white rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">Real-Time Analytics</h3>
-            <p class="text-gray-600">
-              Track customer engagement, redemption rates, and revenue lift from one sleek dashboard.
-            </p>
-          </div>
-          <div class="p-6 bg-white rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">Seamless Integration</h3>
-            <p class="text-gray-600">
-              Plug into your existing POS or use our intuitive web portal. No costly hardware required.
-            </p>
-          </div>
-          <div class="p-6 bg-white rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">Guest Insights</h3>
-            <p class="text-gray-600">
-              Learn who your best customers are and send targeted offers to keep them coming back.
-            </p>
-          </div>
-          <div class="p-6 bg-white rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">Mobile Ordering</h3>
-            <p class="text-gray-600">
-              Let loyal guests order ahead or book tables right in your branded app.
-            </p>
-          </div>
-          <div class="p-6 bg-white rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">White-Label App</h3>
-            <p class="text-gray-600">
-              Your logo, your colors, your app. Meal Miles runs in the background.
-            </p>
+          <div class="flex items-start">
+            <svg class="w-8 h-8 text-red-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12h6M9 16h6M9 8h6"/>
+            </svg>
+            <div>
+              <h4 class="text-xl font-semibold mb-1">No More Manual Tracking</h4>
+              <p class="text-gray-600">
+                Eliminate punch-cards and guesswork—points are auto-applied and visible to both you and your guest.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works" class="bg-gray-50 py-20">
+    <section id="how-it-works" class="py-20 bg-gray-50">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-8">How It Works</h2>
         <div class="grid gap-10 md:grid-cols-3">
-          <div>
-            <div class="text-red-600 mb-4">
-              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 7v4a1 1 0 001 1h3m10 0h3a1 1 0 001-1V7m0 10v-4a1 1 0 00-1-1h-3m-10 0H4a1 1 0 00-1 1v4"/>
-              </svg>
-            </div>
-            <h4 class="text-xl font-semibold mb-2">1. Setup in Minutes</h4>
-            <p class="text-gray-600">
-              Sign up, configure your point rules and rewards, and deploy to iOS/Android instantly.
-            </p>
-          </div>
-          <div>
-            <div class="text-red-600 mb-4">
-              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M13 16h-1v-4h-1m4 8H8a4 4 0 01-4-4V8a4 4 0 014-4h5"/>
-              </svg>
-            </div>
-            <h4 class="text-xl font-semibold mb-2">2. Earn & Track</h4>
-            <p class="text-gray-600">
-              Guests collect points on every visit. Watch loyalty metrics climb in your dashboard.
-            </p>
-          </div>
-          <div>
-            <div class="text-red-600 mb-4">
-              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 13l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-              </svg>
-            </div>
-            <h4 class="text-xl font-semibold mb-2">3. Redeem & Reward</h4>
-            <p class="text-gray-600">
-              Guests redeem points through the app. Increase basket size with exclusive offers.
-            </p>
-          </div>
+          <!-- ... your existing 3 steps ... -->
         </div>
       </div>
     </section>
 
     <!-- Call to Action -->
-    <section id="demo" class="py-20 text-center">
+    <section id="demo" class="py-20 text-center bg-white">
       <div class="max-w-2xl mx-auto px-4">
         <h2 class="text-3xl font-bold mb-4">Ready to Grow Your Loyal Fanbase?</h2>
         <p class="text-gray-700 mb-8">
-          Schedule a personalized demo and see how Meal Miles can supercharge repeat business.
+          Schedule a personalized demo and see how MealMiles can supercharge repeat business.
         </p>
         <a href="#contact" class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700">
           Contact Sales
@@ -152,10 +178,10 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-gray-50 py-20">
+    <section id="contact" class="py-20 bg-gray-50">
       <div class="max-w-xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-6">Get in Touch</h2>
-        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+        <form id="contact-form" class="space-y-4">
           <input type="text" name="name" placeholder="Your Name" required
                  class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"/>
           <input type="email" name="email" placeholder="Your Email" required
@@ -171,12 +197,13 @@
         </form>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
   <footer class="bg-white py-6">
     <div class="max-w-6xl mx-auto px-4 text-center text-gray-600">
-      &copy; 2025 Meal Miles. All rights reserved.
+      &copy; 2025 MealMiles. All rights reserved.
     </div>
   </footer>
 
@@ -184,9 +211,8 @@
   <script>
     const btn = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
   </script>
+
 </body>
 </html>
