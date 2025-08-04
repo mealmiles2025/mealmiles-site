@@ -232,142 +232,130 @@
 
     <!-- Contact -->
     <section id="contact" class="py-20 bg-surface">
-      <div class="max-w-xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-6 text-white">Get in Touch</h2>
-        <form
-          id="contact-form"
-          action="https://us-central1-mealmiles-b47e2.cloudfunctions.net/contactForm"
-          method="POST"
-          class="space-y-4"
-        >
-          <input type="text" name="name" placeholder="Your Name" required
-                 class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
-          <input type="email" name="email" placeholder="Your Email" required
-                 class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
-          <input type="text" name="restaurant" placeholder="Restaurant Name" required
-                 class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
-          <textarea name="message" rows="4" placeholder="How can we help?"
-                    class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"></textarea>
-          <button type="submit"
-                  class="w-full bg-primary text-white px-4 py-3 rounded-lg hover:bg-red-700 transition">
-            Send Message
-          </button>
-        </form>
-        <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
-      </div>
-    </section>
+     <div class="max-w-xl mx-auto px-4">
+       <h2 class="text-3xl font-bold text-center mb-6 text-white">Get in Touch</h2>
+       <form
+         id="contact-form"
+         action="https://us-central1-mealmiles-b47e2.cloudfunctions.net/contactForm"
+         method="POST"
+         class="space-y-4"
+       >
+         <input name="name"        type="text"    placeholder="Your Name"       required
+           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
+         <input name="email"       type="email"   placeholder="Your Email"      required
+           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
+         <input name="restaurant"  type="text"    placeholder="Restaurant Name" required
+           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
+         <textarea name="message" rows="4"        placeholder="How can we help?"
+           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"></textarea>
+         <button type="submit"
+           class="w-full bg-primary text-white px-4 py-3 rounded-lg hover:bg-red-700 transition">
+           Send Message
+         </button>
+       </form>
+       <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
+     </div>
+   </section>
 
-  </main>
+   <!-- Footer -->
+   <footer class="bg-card border-t border-zinc-800 py-6 animate-fadein">
+     <div class="max-w-6xl mx-auto px-4 text-center text-zinc-500">
+       &copy; 2025 <a href="https://getmealmiles.com" class="text-primary hover:underline">MealMiles</a>. All rights reserved.
+     </div>
+   </footer>
 
-  <!-- Footer -->
-  <footer class="bg-card border-t border-zinc-800 py-6 animate-fadein delay-2000">
-    <div class="max-w-6xl mx-auto px-4 text-center text-zinc-500">
-      &copy; 2025 <a href="https://getmealmiles.com" class="text-primary hover:underline">MealMiles</a>. All rights reserved.
-    </div>
-  </footer>
+   <!-- Toast helper -->
+   <script>
+     function showToast(message, type = 'success') {
+       const container = document.getElementById('toast-container');
+       const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+       const toast = document.createElement('div');
+       toast.className = `px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0 animate-fadein`;
+       toast.innerText = message;
+       container.appendChild(toast);
+       setTimeout(() => {
+         toast.classList.add('opacity-0', 'transition', 'duration-500');
+         setTimeout(() => container.removeChild(toast), 500);
+       }, 4000);
+     }
+   </script>
 
-  <!-- ────────────── Scripts & App Check ────────────── -->
+   <!-- Firebase + App Check + form handler -->
+   <script type="module">
+     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+     import {
+       initializeAppCheck,
+       ReCaptchaV3Provider,
+       getToken
+     } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check.js';
 
- <!-- 1) Your existing toast helper, unchanged -->
- <script>
-   function showToast(message, type = 'success') {
-     const container = document.getElementById('toast-container');
-     const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
-     const toast = document.createElement('div');
-     toast.className = `px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0 animate-fadein`;
-     toast.innerText = message;
-     container.appendChild(toast);
-     setTimeout(() => {
-       toast.classList.add('opacity-0', 'transition', 'duration-500');
-       setTimeout(() => container.removeChild(toast), 500);
-     }, 4000);
-   }
- </script>
+     // ← your Firebase config
+     const firebaseConfig = {
+       apiKey:      "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc",
+       authDomain:  "mealmiles-b47e2.firebaseapp.com",
+       projectId:   "mealmiles-b47e2",
+     };
 
- <!-- 2) Firebase + App Check + AJAX handler -->
- <script type="module">
-   // 2a) Import the modular SDKs
-   import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
-   import {
-     getAppCheck,
-     ReCaptchaV3Provider,
-     getToken
-   } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check.js';
+     // 1) init SDK
+     const app = initializeApp(firebaseConfig);
 
-   // 2b) Your Firebase config – REPLACE with your actual values
-   const firebaseConfig = {
-     apiKey: "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc",
-     authDomain: "mealmiles-b47e2.firebaseapp.com",
-     projectId: "mealmiles-b47e2",
-   };
-
-   // 2c) Initialize
-   const app = initializeApp(firebaseConfig);
-   const appCheck = getAppCheck(app);
-
-   // 2d) Activate App Check with your reCAPTCHA v3 *site* key
-   appCheck.activate(
-     "6LfyoZorAAAAAJ3bGbJ1t2oXy1H6G3chxC7wvg8s",   // ← from Google reCAPTCHA admin
-     /* isTokenAutoRefreshEnabled = */ true
-   );
-
-   // 2e) Once DOM is ready, wire up the mobile‐menu toggle and the form submit
-   document.addEventListener('DOMContentLoaded', () => {
-     // mobile menu toggle (unchanged)
-     const btn  = document.getElementById('mobile-menu-button');
-     const menu = document.getElementById('mobile-menu');
-     btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-
-     // form submit: grab an App Check token, then include it in the header
-     const form = document.getElementById('contact-form');
-     form.addEventListener('submit', async (e) => {
-       e.preventDefault();
-
-       // collect your form fields
-       const data = {
-         name:       form.name.value.trim(),
-         email:      form.email.value.trim(),
-         restaurant: form.restaurant.value.trim(),
-         message:    form.message.value.trim(),
-       };
-
-       // fetch a valid App Check token
-       let tokenResult;
-       try {
-         tokenResult = await getToken(appCheck, /* forceRefresh= */ false);
-       } catch (err) {
-         console.error("App Check error", err);
-         showToast("❌ Could not verify App Check", "error");
-         return;
-       }
-
-       // send the payload + App Check token
-       try {
-         const res = await fetch(form.action, {
-           method:  'POST',
-           headers: {
-             'Content-Type':       'application/json',
-             'X-Firebase-AppCheck': tokenResult.token
-           },
-           body: JSON.stringify(data),
-         });
-         if (!res.ok) throw new Error(await res.text());
-         showToast('✅ Your inquiry has been sent!', 'success');
-         form.reset();
-       } catch (err) {
-         console.error(err);
-         showToast('❌ Sorry, something went wrong. Please try again.', 'error');
-       }
+     // 2) activate App Check
+     const appCheck = initializeAppCheck(app, {
+       provider: new ReCaptchaV3Provider("6LfyoZorAAAAAJ3bGbJ1t2oXy1H6G3chxC7wvg8s"),
+       isTokenAutoRefreshEnabled: true
      });
-   });
- </script>
 
-  <!-- Mobile menu toggle -->
- <script>
-   const btn = document.getElementById('mobile-menu-button');
-   const menu = document.getElementById('mobile-menu');
-   btn.addEventListener('click', () => menu.classList.toggle('hidden'));
- </script>
+     // 3) DOM ready: wire up mobile menu + form
+     document.addEventListener('DOMContentLoaded', () => {
+       // Mobile menu toggle
+       document.getElementById('mobile-menu-button')
+         .addEventListener('click', () => {
+           document.getElementById('mobile-menu').classList.toggle('hidden');
+         });
+
+       // Form submit
+       const form = document.getElementById('contact-form');
+       form.addEventListener('submit', async e => {
+         e.preventDefault();
+
+         // gather fields
+         const data = {
+           name:       form.name.value.trim(),
+           email:      form.email.value.trim(),
+           restaurant: form.restaurant.value.trim(),
+           message:    form.message.value.trim(),
+         };
+
+         // get a fresh App Check token
+         let tokenResult;
+         try {
+           tokenResult = await getToken(appCheck, false);
+         } catch (err) {
+           console.error("App Check error", err);
+           showToast("❌ Could not verify App Check", "error");
+           return;
+         }
+
+         // POST with your App Check header
+         try {
+           const res = await fetch(form.action, {
+             method: 'POST',
+             headers: {
+               'Content-Type':       'application/json',
+               'X-Firebase-AppCheck': tokenResult.token
+             },
+             body: JSON.stringify(data),
+           });
+           if (!res.ok) throw new Error(await res.text());
+           showToast('✅ Your inquiry has been sent!', 'success');
+           form.reset();
+         } catch (err) {
+           console.error(err);
+           showToast('❌ Sorry, something went wrong. Please try again.', 'error');
+         }
+       });
+     });
+   </script>
 
   <!-- Animations (basic fade-in with Tailwind) -->
   <style>
@@ -397,13 +385,6 @@
       animation: fadein 0.3s ease-out forwards;
     }
   </style>
-
-  <!-- Mobile menu toggle -->
-  <script>
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-  </script>
 
 </body>
 </html>
