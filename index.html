@@ -307,6 +307,102 @@
     </div>
   </footer>
 
+  <!-- ────────────── Scripts & App Check ────────────── -->
+
+ <!-- 1) Your existing toast helper, unchanged -->
+ <script>
+   function showToast(message, type = 'success') {
+     const container = document.getElementById('toast-container');
+     const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+     const toast = document.createElement('div');
+     toast.className = `px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0 animate-fadein`;
+     toast.innerText = message;
+     container.appendChild(toast);
+     setTimeout(() => {
+       toast.classList.add('opacity-0', 'transition', 'duration-500');
+       setTimeout(() => container.removeChild(toast), 500);
+     }, 4000);
+   }
+ </script>
+
+ <!-- 2) Firebase + App Check + AJAX handler -->
+ <script type="module">
+   // 2a) Import the modular SDKs
+   import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+   import {
+     getAppCheck,
+     ReCaptchaV3Provider,
+     getToken
+   } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check.js';
+
+   // 2b) Your Firebase config – REPLACE with your actual values
+   const firebaseConfig = {
+     apiKey: "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc"
+     authDomain: "mealmiles-b47e2.firebaseapp.com",
+     projectId: "mealmiles-b47e2",
+   };
+
+   // 2c) Initialize
+   const app = initializeApp(firebaseConfig);
+   const appCheck = getAppCheck(app);
+
+   // 2d) Activate App Check with your reCAPTCHA v3 *site* key
+   appCheck.activate(
+     "YOUR_RECAPTCHA_SITE_KEY",   // ← from Google reCAPTCHA admin
+     /* isTokenAutoRefreshEnabled = */ true
+   );
+
+   // 2e) Once DOM is ready, wire up the mobile‐menu toggle and the form submit
+   document.addEventListener('DOMContentLoaded', () => {
+     // mobile menu toggle (unchanged)
+     const btn  = document.getElementById('mobile-menu-button');
+     const menu = document.getElementById('mobile-menu');
+     btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+     // form submit: grab an App Check token, then include it in the header
+     const form = document.getElementById('contact-form');
+     form.addEventListener('submit', async (e) => {
+       e.preventDefault();
+
+       // collect your form fields
+       const data = {
+         name:       form.name.value.trim(),
+         email:      form.email.value.trim(),
+         restaurant: form.restaurant.value.trim(),
+         message:    form.message.value.trim(),
+       };
+
+       // fetch a valid App Check token
+       let tokenResult;
+       try {
+         tokenResult = await getToken(appCheck, /* forceRefresh= */ false);
+       } catch (err) {
+         console.error("App Check error", err);
+         showToast("❌ Could not verify App Check", "error");
+         return;
+       }
+
+       // send the payload + App Check token
+       try {
+         const res = await fetch(form.action, {
+           method:  'POST',
+           headers: {
+             'Content-Type':       'application/json',
+             'X-Firebase-AppCheck': tokenResult.token
+           },
+           body: JSON.stringify(data),
+         });
+         if (!res.ok) throw new Error(await res.text());
+         showToast('✅ Your inquiry has been sent!', 'success');
+         form.reset();
+       } catch (err) {
+         console.error(err);
+         showToast('❌ Sorry, something went wrong. Please try again.', 'error');
+       }
+     });
+   });
+ </script>
+
   <!-- Mobile menu toggle -->
  <script>
    const btn = document.getElementById('mobile-menu-button');
