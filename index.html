@@ -369,48 +369,6 @@
    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
  </script>
 
- <!-- toast + AJAX handler, runs after DOM is ready -->
- <script>
-   function showToast(message, type = 'success') {
-     const container = document.getElementById('toast-container');
-     const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
-     const toast = document.createElement('div');
-     toast.className = `px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0 animate-fadein`;
-     toast.innerText = message;
-     container.appendChild(toast);
-     setTimeout(() => {
-       toast.classList.add('opacity-0', 'transition', 'duration-500');
-       setTimeout(() => container.removeChild(toast), 500);
-     }, 4000);
-   }
-
-   document.addEventListener('DOMContentLoaded', () => {
-     const form = document.getElementById('contact-form');
-     form.addEventListener('submit', async (e) => {
-       e.preventDefault();
-       const data = {
-         name:       form.name.value.trim(),
-         email:      form.email.value.trim(),
-         restaurant: form.restaurant.value.trim(),
-         message:    form.message.value.trim(),
-       };
-       try {
-         const res = await fetch(form.action, {
-           method:  'POST',
-           headers: { 'Content-Type': 'application/json' },
-           body:    JSON.stringify(data),
-         });
-         if (!res.ok) throw new Error(await res.text());
-         showToast('✅ Your inquiry has been sent!', 'success');
-         form.reset();
-       } catch (err) {
-         console.error(err);
-         showToast('❌ Sorry, something went wrong. Please try again.', 'error');
-       }
-     });
-   });
- </script>
-
   <!-- Animations (basic fade-in with Tailwind) -->
   <style>
     .animate-fadein {
