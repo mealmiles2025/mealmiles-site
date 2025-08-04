@@ -22,47 +22,6 @@
     }
   </script>
 </head>
-<script>
-  // Simple helper to show a toast
-  function showToast(message, type = 'success') {
-    const container = document.getElementById('toast-container');
-    const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
-    const toast = document.createElement('div');
-    toast.className = `px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0 animate-fadein`;
-    toast.innerText = message;
-    container.appendChild(toast);
-    // Auto-dismiss after 4s
-    setTimeout(() => {
-      toast.classList.add('opacity-0', 'transition', 'duration-500');
-      setTimeout(() => container.removeChild(toast), 500);
-    }, 4000);
-  }
-
-  // Attach AJAX handler to your form
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = {
-      name:       form.name.value.trim(),
-      email:      form.email.value.trim(),
-      restaurant: form.restaurant.value.trim(),
-      message:    form.message.value.trim(),
-    };
-    try {
-      const res = await fetch(form.action, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error(await res.text());
-      showToast('✅ Your inquiry has been sent!', 'success');
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      showToast('❌ Sorry, something went wrong. Please try again.', 'error');
-    }
-  });
-</script>
 
 <body class="dark bg-surface text-gray-200 font-sans antialiased">
 
@@ -337,7 +296,7 @@
 
    // 2b) Your Firebase config – REPLACE with your actual values
    const firebaseConfig = {
-     apiKey: "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc"
+     apiKey: "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc",
      authDomain: "mealmiles-b47e2.firebaseapp.com",
      projectId: "mealmiles-b47e2",
    };
@@ -348,7 +307,7 @@
 
    // 2d) Activate App Check with your reCAPTCHA v3 *site* key
    appCheck.activate(
-     "YOUR_RECAPTCHA_SITE_KEY",   // ← from Google reCAPTCHA admin
+     "6LfyoZorAAAAAJ3bGbJ1t2oXy1H6G3chxC7wvg8s",   // ← from Google reCAPTCHA admin
      /* isTokenAutoRefreshEnabled = */ true
    );
 
