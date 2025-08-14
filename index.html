@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MealMiles – Loyalty & Table-Side Ordering for Restaurants</title>
-  <link rel="icon" href="consumerAppIcon.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MealMiles – Loyalty & Ordering Marketplace for Restaurants</title>
+  <link rel="icon" href="consumerAppIcon.png" type="image/png" />
+  <meta name="description" content="MealMiles is a marketplace app that lets diners order from local restaurants and earn points. Restaurants are the sellers of record and fulfill orders; payments are processed by Stripe." />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
-          colors: {
-            primary: '#ea3c53',
-            surface: '#181926',
-            card: '#232337',
-            muted: '#767680'
-          }
+          colors: { primary:'#ea3c53', surface:'#181926', card:'#232337', muted:'#767680' }
         }
       }
     }
+  </script>
+
+  <!-- JSON-LD with minimal org info (no street/phone/email) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MealMiles Enterprises Limited",
+    "url":"https://getmealmiles.com",
+    "address": {
+      "@type":"PostalAddress",
+      "addressLocality":"Surrey",
+      "addressRegion":"British Columbia",
+      "addressCountry":"CA"
+    },
+    "logo":"https://getmealmiles.com/consumerAppIcon.png"
+  }
   </script>
 </head>
 
 <body class="dark bg-surface text-gray-200 font-sans antialiased">
 
   <!-- Header / Nav -->
-  <header class="fixed w-full bg-card/90 backdrop-blur z-50 border-b border-zinc-800 shadow-lg transition-all">
+  <header class="fixed w-full bg-card/90 backdrop-blur z-50 border-b border-zinc-800 shadow-lg">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="#" class="flex items-center space-x-2">
-        <img src="consumerAppIcon.png" alt="MealMiles logo" class="h-10 w-auto">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="consumerAppIcon.png" alt="MealMiles logo" class="h-10 w-auto" />
         <span class="text-2xl font-bold text-primary tracking-wide">MealMiles</span>
       </a>
       <nav class="hidden md:flex space-x-8">
@@ -37,12 +51,12 @@
         <a href="#features" class="hover:text-primary transition">Features</a>
         <a href="#unified-deals" class="hover:text-primary transition">Unified Deals</a>
         <a href="#how-it-works" class="hover:text-primary transition">How It Works</a>
-        <a href="#demo" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Request a Demo</a>
+        <a href="#trust" class="hover:text-primary transition">Trust & Policies</a>
+        <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Request a Demo</a>
       </nav>
-      <button id="mobile-menu-button" class="md:hidden p-2">
+      <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Open menu">
         <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
@@ -51,166 +65,137 @@
       <a href="#features" class="block px-4 py-2 hover:bg-surface transition">Features</a>
       <a href="#unified-deals" class="block px-4 py-2 hover:bg-surface transition">Unified Deals</a>
       <a href="#how-it-works" class="block px-4 py-2 hover:bg-surface transition">How It Works</a>
-      <a href="#demo" class="block px-4 py-2 text-white bg-primary hover:bg-red-700 rounded-lg transition">Request a Demo</a>
+      <a href="#trust" class="block px-4 py-2 hover:bg-surface transition">Trust & Policies</a>
+      <a href="#contact" class="block px-4 py-2 text-white bg-primary hover:bg-red-700 rounded-lg transition">Request a Demo</a>
     </div>
   </header>
 
   <main class="pt-24 md:pt-28 pb-12">
 
-    <!-- Hero Section with Video -->
+    <!-- Hero -->
     <section id="hero" class="bg-gradient-to-b from-[#232337] to-surface py-16 md:py-24 animate-fadein">
       <div class="max-w-4xl mx-auto text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight drop-shadow-lg animate-fadein">
-          Grow Repeat Sales with Digital Loyalty<br>and Table-Side Ordering
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight drop-shadow-lg">
+          Grow Repeat Sales with Digital Loyalty<br/>and Table-Side Ordering
         </h1>
-        <p class="text-lg md:text-xl text-zinc-300 mb-8 max-w-2xl mx-auto animate-fadein delay-150">
-          MealMiles gives your restaurant its own storefront inside a single consumer app.
-          Reward diners, unify all your deals, and offer frictionless pickup and table-side ordering—no new hardware, no code, just results.
+        <p class="text-lg md:text-xl text-zinc-300 mb-8 max-w-2xl mx-auto">
+          MealMiles gives your restaurant its own storefront in a single consumer app.
+          Reward diners, unify deals, and offer frictionless pickup and table-side ordering—no new hardware.
         </p>
-        <a href="#demo" class="inline-block bg-primary text-white px-7 py-3 rounded-2xl text-lg font-semibold shadow hover:bg-red-700 transition mb-8 animate-bounce">
+        <a href="#contact" class="inline-block bg-primary text-white px-7 py-3 rounded-2xl text-lg font-semibold shadow hover:bg-red-700 transition mb-8">
           Request a Demo
         </a>
 
-        <!-- ★ NEW SUB-HEADING ★ -->
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary drop-shadow animate-fadein delay-300">
-          Why Choose MealMiles? Drive More Sales & Repeat Customers!
-        </h2>
-
-        <!-- ★ UPDATED VIDEO EMBED ★ -->
-        <div class="w-full flex justify-center mt-6 animate-fadein delay-300">
+        <div class="w-full flex justify-center mt-6">
           <div class="rounded-xl shadow-2xl overflow-hidden border-4 border-zinc-800 max-w-2xl w-full aspect-video">
             <iframe
               src="https://www.youtube.com/embed/sCCsxW6CaCU?controls=1"
-              title="MealMiles Partner Promotional Video"
+              title="MealMiles Overview"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              class="w-full h-full">
-            </iframe>
+              allowfullscreen class="w-full h-full"></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Why Loyalty Matters -->
-    <section id="why-loyalty" class="py-20 bg-card animate-fadein delay-500">
+    <!-- Why Loyalty, Features, Unified Deals, How It Works (keep your existing content) -->
+    <section id="why-loyalty" class="py-20 bg-card">
       <div class="max-w-4xl mx-auto text-center px-4">
         <h2 class="text-3xl font-bold mb-10 text-white">Why Loyalty Matters for Your Restaurant</h2>
         <div class="grid gap-8 md:grid-cols-3">
-          <div class="p-6">
-            <p class="text-4xl font-extrabold text-primary drop-shadow">+45%</p>
-            <p class="mt-2 text-zinc-300">avg. increase in repeat visits</p>
-          </div>
-          <div class="p-6">
-            <p class="text-4xl font-extrabold text-primary drop-shadow">+12%</p>
-            <p class="mt-2 text-zinc-300">increase in average spend</p>
-          </div>
-          <div class="p-6">
-            <p class="text-4xl font-extrabold text-primary drop-shadow">80%</p>
-            <p class="mt-2 text-zinc-300">of guests prefer digital rewards</p>
-          </div>
+          <div class="p-6"><p class="text-4xl font-extrabold text-primary drop-shadow">+45%</p><p class="mt-2 text-zinc-300">avg. increase in repeat visits</p></div>
+          <div class="p-6"><p class="text-4xl font-extrabold text-primary drop-shadow">+12%</p><p class="mt-2 text-zinc-300">increase in average spend</p></div>
+          <div class="p-6"><p class="text-4xl font-extrabold text-primary drop-shadow">80%</p><p class="mt-2 text-zinc-300">of guests prefer digital rewards</p></div>
         </div>
-        <p class="mt-10 text-zinc-400 text-base">
-          Data from Bond Brand Loyalty, McKinsey &amp; Company, and others show digital loyalty drives double-digit growth—now you can deliver those results in your restaurant.
-        </p>
+        <p class="mt-10 text-zinc-400 text-base">Studies show digital loyalty drives double-digit growth—now you can deliver those results in your restaurant.</p>
       </div>
     </section>
 
-    <!-- Partner Benefits -->
-    <section id="features" class="py-20 bg-surface animate-fadein delay-700">
+    <section id="features" class="py-20 bg-surface">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12 text-white">Partner Benefits</h2>
         <div class="grid gap-8 md:grid-cols-3">
-          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition">
-            <h3 class="text-xl font-semibold mb-2 text-primary">Custom Rewards</h3>
-            <p class="text-zinc-300">
-              Define point-earning rules to fit your menu: buffets, BOGO, percentage offers, loyalty tiers, and more.
-            </p>
-          </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition">
-            <h3 class="text-xl font-semibold mb-2 text-primary">Real-Time Analytics</h3>
-            <p class="text-zinc-300">
-              See who’s earning points, redeeming rewards, and boosting your revenue—right in your dashboard.
-            </p>
-          </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition">
-            <h3 class="text-xl font-semibold mb-2 text-primary">Seamless Integration</h3>
-            <p class="text-zinc-300">
-              Plug into your POS or use our web admin—no new hardware required.
-            </p>
-          </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition">
-            <h3 class="text-xl font-semibold mb-2 text-primary">Guest Insights</h3>
-            <p class="text-zinc-300">
-              Identify your best guests and send targeted offers to keep them coming back.
-            </p>
-          </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition">
-            <h3 class="text-xl font-semibold mb-2 text-primary">Mobile Ordering</h3>
-            <p class="text-zinc-300">
-              Let guests browse your menu, order pickup, or dine-in—inside the MealMiles app.
-            </p>
-          </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition">
-            <h3 class="text-xl font-semibold mb-2 text-primary">Dine-In Ordering</h3>
-            <p class="text-zinc-300">
-              Guests enter their table number to order—fewer trips, less friction, and faster service.
-            </p>
-          </div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition"><h3 class="text-xl font-semibold mb-2 text-primary">Custom Rewards</h3><p class="text-zinc-300">Define point rules: BOGO, %-off, tiers, and more.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition"><h3 class="text-xl font-semibold mb-2 text-primary">Real-Time Analytics</h3><p class="text-zinc-300">See who’s earning, redeeming, and boosting revenue.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition"><h3 class="text-xl font-semibold mb-2 text-primary">Seamless Integration</h3><p class="text-zinc-300">Use our web admin or plug into your POS—no hardware.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition"><h3 class="text-xl font-semibold mb-2 text-primary">Guest Insights</h3><p class="text-zinc-300">Identify top guests and send targeted offers.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition"><h3 class="text-xl font-semibold mb-2 text-primary">Mobile Ordering</h3><p class="text-zinc-300">Offer pickup and dine-in ordering in the MealMiles app.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl hover:scale-105 transition"><h3 class="text-xl font-semibold mb-2 text-primary">Dine-In Ordering</h3><p class="text-zinc-300">Guests enter a table number—less friction, faster turns.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Unified Deals & Offers -->
-    <section id="unified-deals" class="py-20 bg-card animate-fadein delay-1000">
+    <section id="unified-deals" class="py-20 bg-card">
       <div class="max-w-5xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-6 text-white">Unified Deals &amp; Offers</h2>
-        <p class="text-lg text-zinc-300 mb-8">
-          Ditch punch-cards and scattered promos. With MealMiles, every coupon, BOGO, and flash deal lives in one app—so you drive traffic, not confusion.
-        </p>
+        <p class="text-lg text-zinc-300 mb-8">Every coupon, BOGO, and flash deal lives in one app—so you drive traffic, not confusion.</p>
         <div class="grid gap-8 md:grid-cols-2">
-          <div class="flex items-start">
-            <span class="mr-4 text-primary text-2xl">✔</span>
-            <div>
-              <h4 class="text-xl font-semibold mb-1 text-primary">Automatic Points Tracking</h4>
-              <p class="text-zinc-300">
-                No more punch-cards or manual tracking—points apply and redeem seamlessly.
-              </p>
-            </div>
-          </div>
-          <div class="flex items-start">
-            <span class="mr-4 text-primary text-2xl">✔</span>
-            <div>
-              <h4 class="text-xl font-semibold mb-1 text-primary">All Your Deals in One Place</h4>
-              <p class="text-zinc-300">
-                Buffets, BOGO, %-off, loyalty tiers—guests never miss another offer.
-              </p>
-            </div>
-          </div>
+          <div class="flex items-start"><span class="mr-4 text-primary text-2xl">✔</span><div><h4 class="text-xl font-semibold mb-1 text-primary">Automatic Points</h4><p class="text-zinc-300">Points apply and redeem seamlessly—no punch cards.</p></div></div>
+          <div class="flex items-start"><span class="mr-4 text-primary text-2xl">✔</span><div><h4 class="text-xl font-semibold mb-1 text-primary">All Deals in One Place</h4><p class="text-zinc-300">BOGO, %-off, loyalty tiers—guests never miss an offer.</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 bg-surface animate-fadein delay-1200">
+    <section id="how-it-works" class="py-20 bg-surface">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-10 text-white">How It Works</h2>
         <div class="grid gap-10 md:grid-cols-3">
-          <div class="p-6 bg-card rounded-2xl shadow-xl">
-            <h3 class="text-xl font-semibold mb-2 text-primary">1. Onboard Your Menu</h3>
-            <p class="text-zinc-300">
-              Upload your menu and rewards—your storefront is ready in 15 minutes.
+          <div class="p-6 bg-card rounded-2xl shadow-xl"><h3 class="text-xl font-semibold mb-2 text-primary">1. Onboard</h3><p class="text-zinc-300">Upload menu & rewards—your storefront is ready fast.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl"><h3 class="text-xl font-semibold mb-2 text-primary">2. Go Live</h3><p class="text-zinc-300">We integrate your restaurant—discoverable in the app.</p></div>
+          <div class="p-6 bg-card rounded-2xl shadow-xl"><h3 class="text-xl font-semibold mb-2 text-primary">3. Order &amp; Earn</h3><p class="text-zinc-300">Diners order pickup/dine-in, earn points, redeem rewards.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Policies (Stripe-friendly, minimal personal info) -->
+    <section id="trust" class="py-20 bg-card">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6 text-white text-center">Trust, Payments & Policies</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 text-zinc-300">
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
+            <h3 class="text-xl font-semibold text-primary mb-2">Who We Are</h3>
+            <p>
+              <strong class="text-white">MealMiles Enterprises Limited</strong> (“MealMiles”) is a Canadian software
+              platform based in <em>Surrey, British Columbia, Canada</em> that connects diners with independent restaurants.
+              For any questions, please use the contact form below.
             </p>
           </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl">
-            <h3 class="text-xl font-semibold mb-2 text-primary">2. We Build Your Storefront</h3>
-            <p class="text-zinc-300">
-              We integrate your restaurant into MealMiles—guests discover you in under 48 hours.
+
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
+            <h3 class="text-xl font-semibold text-primary mb-2">Merchant of Record</h3>
+            <p>
+              Orders are sold and fulfilled by the <strong>restaurant</strong> you choose.
+              The restaurant is the <em>merchant of record</em>. MealMiles provides the ordering platform and technical support.
+            </p>
+            <p class="mt-2">Your card statement may display the restaurant name as the descriptor.</p>
+          </div>
+
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
+            <h3 class="text-xl font-semibold text-primary mb-2">When You’re Charged</h3>
+            <p>
+              Customers are charged at checkout in CAD. Taxes and any service fees are shown before you pay.
+              Payments are processed securely by <strong>Stripe</strong>. MealMiles does not store full card numbers.
             </p>
           </div>
-          <div class="p-6 bg-card rounded-2xl shadow-xl">
-            <h3 class="text-xl font-semibold mb-2 text-primary">3. Order &amp; Earn</h3>
-            <p class="text-zinc-300">
-              Diners find you in-app, place dine-in or pickup orders, earn points on every item, and redeem rewards seamlessly.
+
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
+            <h3 class="text-xl font-semibold text-primary mb-2">Refunds & Cancellations</h3>
+            <p>
+              You may cancel an order within <strong>5 minutes</strong> of placing it <em>or</em> before the restaurant
+              starts preparing the order, whichever happens first. After that time, refunds are at the restaurant’s
+              discretion. If the restaurant cancels an order (e.g., out of stock or closed), you’ll receive a full refund.
+              Use the order receipt or the form below if you need help.
+            </p>
+          </div>
+
+
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800 md:col-span-2">
+            <h3 class="text-xl font-semibold text-primary mb-2">Loyalty Points</h3>
+            <p>
+              Customers may earn MealMiles points at participating restaurants. Points have no cash value,
+              are non-transferable, and may expire; redemptions depend on each restaurant’s availability.
+              See our <a href="terms.html" class="text-primary hover:underline">Terms of Service</a>.
             </p>
           </div>
         </div>
@@ -218,177 +203,126 @@
     </section>
 
     <!-- Call to Action -->
-    <section id="demo" class="py-20 text-center bg-card animate-fadein delay-1500">
+    <section id="demo" class="py-20 text-center bg-card">
       <div class="max-w-2xl mx-auto px-4">
         <h2 class="text-3xl font-bold mb-4 text-white">Ready to Supercharge Sales & Efficiency?</h2>
-        <p class="text-zinc-300 mb-8">
-          Schedule a personalized demo and see how MealMiles can boost your margins and drive repeat business.
-        </p>
-        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-2xl hover:bg-red-700 transition">
-          Contact Sales
-        </a>
+        <p class="text-zinc-300 mb-8">Schedule a personalized demo and see how MealMiles can boost your margins and drive repeat business.</p>
+        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-2xl hover:bg-red-700 transition">Contact Sales</a>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact (form) -->
     <section id="contact" class="py-20 bg-surface">
-     <div class="max-w-xl mx-auto px-4">
-       <h2 class="text-3xl font-bold text-center mb-6 text-white">Get in Touch</h2>
-       <form
-         id="contact-form"
-         action="https://us-central1-mealmiles-b47e2.cloudfunctions.net/contactForm"
-         method="POST"
-         class="space-y-4"
-       >
-         <input name="name"        type="text"    placeholder="Your Name"       required
-           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
-         <input name="email"       type="email"   placeholder="Your Email"      required
-           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
-         <input name="restaurant"  type="text"    placeholder="Restaurant Name" required
-           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"/>
-         <textarea name="message" rows="4"        placeholder="How can we help?"
-           class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"></textarea>
-         <button type="submit"
-           class="w-full bg-primary text-white px-4 py-3 rounded-lg hover:bg-red-700 transition">
-           Send Message
-         </button>
-       </form>
-       <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
-     </div>
-   </section>
+      <div class="max-w-xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-6 text-white">Get in Touch</h2>
+        <form
+          id="contact-form"
+          action="https://us-central1-mealmiles-b47e2.cloudfunctions.net/contactForm"
+          method="POST"
+          class="space-y-4"
+        >
+          <input name="name" type="text" placeholder="Your Name" required
+            class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" />
+          <input name="email" type="email" placeholder="Your Email" required
+            class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" />
+          <input name="restaurant" type="text" placeholder="Restaurant Name" required
+            class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" />
+          <textarea name="message" rows="4" placeholder="How can we help?"
+            class="w-full px-4 py-3 bg-card border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"></textarea>
+          <button type="submit"
+            class="w-full bg-primary text-white px-4 py-3 rounded-lg hover:bg-red-700 transition">
+            Send Message
+          </button>
+        </form>
+        <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
+      </div>
+    </section>
 
-   <!-- Footer -->
-   <footer class="bg-card border-t border-zinc-800 py-6 animate-fadein">
-     <div class="max-w-6xl mx-auto px-4 text-center text-zinc-500">
-       &copy; 2025 <a href="https://getmealmiles.com" class="text-primary hover:underline">MealMiles</a>. All rights reserved.
-     </div>
-   </footer>
+  </main>
 
-   <!-- Toast helper -->
-   <script>
-     function showToast(message, type = 'success') {
-       const container = document.getElementById('toast-container');
-       const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
-       const toast = document.createElement('div');
-       toast.className = `px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0 animate-fadein`;
-       toast.innerText = message;
-       container.appendChild(toast);
-       setTimeout(() => {
-         toast.classList.add('opacity-0', 'transition', 'duration-500');
-         setTimeout(() => container.removeChild(toast), 500);
-       }, 4000);
-     }
-   </script>
+  <!-- Footer -->
+  <footer class="bg-card border-t border-zinc-800 py-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-zinc-500 gap-3">
+      <div>&copy; 2025 <span class="text-primary">MealMiles</span>. All rights reserved.</div>
+      <nav class="flex items-center gap-4 text-sm">
+        <a href="terms.html" class="hover:text-primary">Terms</a>
+        <a href="privacy.html" class="hover:text-primary">Privacy</a>
+        <a href="#trust" class="hover:text-primary">Refunds & Policies</a>
+        <a href="#contact" class="hover:text-primary">Support</a>
+      </nav>
+    </div>
+  </footer>
 
-   <!-- Firebase + App Check + form handler -->
-   <script type="module">
-     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
-     import {
-       initializeAppCheck,
-       ReCaptchaV3Provider,
-       getToken
-     } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check.js';
+  <!-- Toast helper -->
+  <div id="toast-root"></div>
+  <script>
+    function showToast(message, type='success'){
+      const container=document.getElementById('toast-container');
+      const bg=type==='success'?'bg-green-600':'bg-red-600';
+      const el=document.createElement('div');
+      el.className=`px-4 py-2 text-white rounded shadow-lg ${bg} opacity-0`;
+      el.textContent=message; container.appendChild(el);
+      requestAnimationFrame(()=>{ el.style.transition='opacity .25s'; el.style.opacity=1; });
+      setTimeout(()=>{ el.style.opacity=0; setTimeout(()=>el.remove(),250); },4000);
+    }
+  </script>
 
-     // ← your Firebase config
-     const firebaseConfig = {
-        apiKey: "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc",
-        authDomain: "mealmiles-b47e2.firebaseapp.com",
-        projectId: "mealmiles-b47e2",
-        storageBucket: "mealmiles-b47e2.firebasestorage.app",
-        messagingSenderId: "751069884214",
-        appId: "1:751069884214:web:c03379d555c36f22f0cd97",
-        measurementId: "G-1BQD5LEDYM"
-      };
+  <!-- Firebase + App Check + form handler -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check.js';
 
-     // 1) init SDK
-     const app = initializeApp(firebaseConfig);
+    const firebaseConfig = {
+      apiKey: "AIzaSyBBfytsfHSuDFOOJ13N_q6-0tHDlPk-ZQc",
+      authDomain: "mealmiles-b47e2.firebaseapp.com",
+      projectId: "mealmiles-b47e2",
+      storageBucket: "mealmiles-b47e2.firebasestorage.app",
+      messagingSenderId: "751069884214",
+      appId: "1:751069884214:web:c03379d555c36f22f0cd97",
+      measurementId: "G-1BQD5LEDYM"
+    };
 
-     // 2) activate App Check
-     const appCheck = initializeAppCheck(app, {
-       provider: new ReCaptchaV3Provider("6LfyoZorAAAAAJ3bGbJ1t2oXy1H6G3chxC7wvg8s"),
-       isTokenAutoRefreshEnabled: true
-     });
+    const app = initializeApp(firebaseConfig);
+    const appCheck = initializeAppCheck(app, {
+      provider: new ReCaptchaV3Provider("6LfyoZorAAAAAJ3bGbJ1t2oXy1H6G3chxC7wvg8s"),
+      isTokenAutoRefreshEnabled: true
+    });
 
-     // 3) DOM ready: wire up mobile menu + form
-     document.addEventListener('DOMContentLoaded', () => {
-       // Mobile menu toggle
-       document.getElementById('mobile-menu-button')
-         .addEventListener('click', () => {
-           document.getElementById('mobile-menu').classList.toggle('hidden');
-         });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('mobile-menu-button').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
 
-       // Form submit
-       const form = document.getElementById('contact-form');
-       form.addEventListener('submit', async e => {
-         e.preventDefault();
+      const form=document.getElementById('contact-form');
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const data = {
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          restaurant: form.restaurant.value.trim(),
+          message: form.message.value.trim()
+        };
+        let tokenResult;
+        try { tokenResult = await getToken(appCheck, false); }
+        catch(e){ console.error(e); showToast('Could not verify App Check','error'); return; }
 
-         // gather fields
-         const data = {
-           name:       form.name.value.trim(),
-           email:      form.email.value.trim(),
-           restaurant: form.restaurant.value.trim(),
-           message:    form.message.value.trim(),
-         };
+        try {
+          const res = await fetch(form.action, {
+            method:'POST',
+            headers:{ 'Content-Type':'application/json','X-Firebase-AppCheck': tokenResult.token },
+            body: JSON.stringify(data)
+          });
+          if(!res.ok) throw new Error(await res.text());
+          showToast('✅ Your inquiry has been sent!','success'); form.reset();
+        } catch(err){ console.error(err); showToast('❌ Something went wrong. Please try again.','error'); }
+      });
+    });
+  </script>
 
-         // get a fresh App Check token
-         let tokenResult;
-         try {
-           tokenResult = await getToken(appCheck, false);
-         } catch (err) {
-           console.error("App Check error", err);
-           showToast("❌ Could not verify App Check", "error");
-           return;
-         }
-
-         // POST with your App Check header
-         try {
-           const res = await fetch(form.action, {
-             method: 'POST',
-             headers: {
-               'Content-Type':       'application/json',
-               'X-Firebase-AppCheck': tokenResult.token
-             },
-             body: JSON.stringify(data),
-           });
-           if (!res.ok) throw new Error(await res.text());
-           showToast('✅ Your inquiry has been sent!', 'success');
-           form.reset();
-         } catch (err) {
-           console.error(err);
-           showToast('❌ Sorry, something went wrong. Please try again.', 'error');
-         }
-       });
-     });
-   </script>
-
-  <!-- Animations (basic fade-in with Tailwind) -->
+  <!-- Minimal animation -->
   <style>
-    .animate-fadein {
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeinUp 1.2s cubic-bezier(0.25,1,0.5,1) forwards;
-    }
-    .animate-fadein.delay-150 { animation-delay: .15s }
-    .animate-fadein.delay-300 { animation-delay: .3s }
-    .animate-fadein.delay-500 { animation-delay: .5s }
-    .animate-fadein.delay-700 { animation-delay: .7s }
-    .animate-fadein.delay-1000 { animation-delay: 1s }
-    .animate-fadein.delay-1200 { animation-delay: 1.2s }
-    .animate-fadein.delay-1500 { animation-delay: 1.5s }
-    .animate-fadein.delay-1700 { animation-delay: 1.7s }
-    .animate-fadein.delay-2000 { animation-delay: 2s }
-    @keyframes fadeinUp {
-      0% { opacity: 0; transform: translateY(24px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(-10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadein {
-      animation: fadein 0.3s ease-out forwards;
-    }
+    @keyframes fadein { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
+    .animate-fadein { animation: fadein .3s ease-out forwards }
   </style>
-
 </body>
 </html>
