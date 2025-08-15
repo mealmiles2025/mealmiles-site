@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resuming Stripe Onboarding…</title>
+
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+           margin: 0; min-height: 100vh; display: grid; place-items: center; }
+    .card { max-width: 520px; padding: 24px; border-radius: 16px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    .btn { display:inline-block; margin-top:12px; padding:10px 16px; border-radius:10px;
+           background:#ea3c53; color:#fff; text-decoration:none; }
+    .muted { opacity:.7; font-size:14px; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="msg">Reopening MealMiles to continue…</div>
+    <a id="cta" class="btn" href="#" rel="noopener">Open in app</a>
+    <div class="muted">If nothing happens, tap the button above.</div>
+  </div>
+
+  <script>
+    const qs = window.location.search || "";
+    const appLink = "mealmilespartner://stripe/refresh" + qs;
+    document.getElementById("cta").href = appLink;
+    window.location.replace(appLink);
+    setTimeout(() => { document.getElementById("msg").textContent = "Almost there…"; }, 900);
+  </script>
+</body>
+</html>
