@@ -1,50 +1,130 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
+<!doctype html>
+<html lang="en" data-theme="">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Privacy Policy – MealMiles</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="dark bg-[#181926] text-gray-200 font-sans">
-  <main class="max-w-3xl mx-auto px-4 py-10">
-    <h1 class="text-3xl font-bold text-[#ea3c53] mb-6">Privacy Policy</h1>
-    <p class="mb-4 text-sm text-zinc-400">Last updated: 2025-08-13</p>
 
-    <h2 class="text-xl font-semibold mt-6 mb-2">What We Collect</h2>
-    <ul class="list-disc ml-6 mb-4">
-      <li>Account info: name, email (for receipts/support).</li>
-      <li>Order details and preferences.</li>
-      <li>Payment tokens and related metadata (processed by Stripe — MealMiles does not store full card numbers).</li>
-      <li>Device and usage data for performance, security, and fraud prevention (e.g., Firebase App Check).</li>
+  <!-- Tell browsers we support both -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0b0d12">
+
+  <title>MealMiles • Privacy Policy</title>
+
+  <style>
+    /* Light defaults */
+    :root {
+      --bg: #ffffff;
+      --text: #0b0d12;
+      --muted: #475569;
+      --link: #2563eb;
+      --card: #ffffff;
+      --divider: #e5e7eb;
+      --accent: #ef4444;
+    }
+    /* Dark palette (used when forced or preferred) */
+    html[data-theme="dark"] {
+      --bg: #0b0d12;
+      --text: #f1f5f9;
+      --muted: #a1a1aa;
+      --link: #93c5fd;
+      --card: #0f1116;
+      --divider: #1f2937;
+      --accent: #f87171;
+    }
+    /* If NOT forced by data-theme, respect OS preference */
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]):not([data-theme="dark"]) {
+        --bg: #0b0d12;
+        --text: #f1f5f9;
+        --muted: #a1a1aa;
+        --link: #93c5fd;
+        --card: #0f1116;
+        --divider: #1f2937;
+        --accent: #f87171;
+      }
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    .container { max-width: 820px; margin: 0 auto; padding: 24px 16px 64px; }
+    header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--divider); margin-bottom: 24px; }
+    h1 { margin: 16px 0 8px; font-size: 36px; color: var(--accent); }
+    h2 { margin-top: 28px; font-size: 22px; }
+    p  { color: var(--text); }
+    .muted { color: var(--muted); }
+    a  { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 20px; }
+    .card { background: var(--card); border: 1px solid var(--divider); border-radius: 14px; padding: 16px 18px; margin: 14px 0; }
+    footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--divider); color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: <strong>2025-08-13</strong></p>
+    </header>
+
+    <div class="card">
+      <p>
+        MealMiles (“we”, “our”, “us”) provides a loyalty and ordering platform for restaurants
+        (“Partners”) and their customers. This Privacy Policy explains how we collect, use, and share
+        information when you use our apps, websites, and services.
+      </p>
+    </div>
+
+    <h2>What We Collect</h2>
+    <ul>
+      <li>Account information such as name, email, phone (for receipts and support).</li>
+      <li>Order details and loyalty activity.</li>
+      <li>Payment tokens &amp; metadata processed by Stripe. <em>We do not store full card numbers.</em></li>
+      <li>Device/usage data for performance, security, and fraud prevention.</li>
+      <li>Restaurant profile content (menus, photos, hours) for Partner accounts.</li>
     </ul>
 
-    <h2 class="text-xl font-semibold mt-6 mb-2">How We Use Data</h2>
-    <ul class="list-disc ml-6 mb-4">
+    <h2>How We Use Data</h2>
+    <ul>
       <li>Provide and improve ordering, loyalty, and customer support.</li>
+      <li>Facilitate payments and payouts via Stripe.</li>
       <li>Prevent fraud and ensure platform security.</li>
       <li>Comply with law and enforce our Terms.</li>
     </ul>
 
-    <h2 class="text-xl font-semibold mt-6 mb-2">Sharing</h2>
-    <p class="mb-4">
-      We share necessary order and contact information with Restaurants to fulfill your order. We also share data with
-      processors such as Stripe (payments), Firebase (infrastructure), and analytics providers under appropriate agreements.
+    <h2>Sharing</h2>
+    <p>
+      We share data with service providers (e.g., Stripe, analytics, hosting) under contracts that
+      limit their use to providing services to us. We may disclose information as required by law or
+      to protect rights and safety.
     </p>
 
-    <h2 class="text-xl font-semibold mt-6 mb-2">Your Choices</h2>
-    <ul class="list-disc ml-6 mb-4">
-      <li>To access, correct, or delete your information, use the contact form on our website.</li>
-      <li>You can opt out of marketing emails using the link included in those emails.</li>
-    </ul>
-
-    <h2 class="text-xl font-semibold mt-6 mb-2">Security</h2>
-    <p class="mb-8">
-      We use industry-standard safeguards including TLS, Stripe for payment processing, and Firebase App Check.
-      No method is 100% secure, but we work to protect your data.
+    <h2>Your Choices</h2>
+    <p>
+      Access or update some information in the app or contact
+      <a href="mailto:support@getmealmiles.com">support@getmealmiles.com</a>.
     </p>
 
-    <a href="index.html" class="text-[#ea3c53] hover:underline">← Back to Home</a>
-  </main>
+    <footer>© <span id="y"></span> MealMiles. All rights reserved.</footer>
+  </div>
+
+  <script>
+    // Allow the app to force light/dark via ?theme=light|dark
+    (function () {
+      const p = new URLSearchParams(location.search);
+      const t = (p.get('theme') || '').toLowerCase();
+      if (t === 'light' || t === 'dark') {
+        document.documentElement.setAttribute('data-theme', t);
+      }
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
