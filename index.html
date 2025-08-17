@@ -147,7 +147,7 @@
       </div>
     </section>
 
-    <!-- Trust & Policies (Stripe-friendly, minimal personal info) -->
+    <!-- Trust & Policies -->
     <section id="trust" class="py-20 bg-card">
       <div class="max-w-5xl mx-auto px-4">
         <h2 class="text-3xl font-bold mb-6 text-white text-center">Trust, Payments & Policies</h2>
@@ -189,14 +189,31 @@
             </p>
           </div>
 
-
           <div class="bg-surface rounded-2xl p-6 border border-zinc-800 md:col-span-2">
             <h3 class="text-xl font-semibold text-primary mb-2">Loyalty Points</h3>
             <p>
               Customers may earn MealMiles points at participating restaurants. Points have no cash value,
               are non-transferable, and may expire; redemptions depend on each restaurant’s availability.
-              See our <a href="terms.html" class="text-primary hover:underline">Terms of Service</a>.
+              See our <a href="legal/consumer/terms.html" class="text-primary hover:underline">Consumer Terms of Service</a>.
             </p>
+          </div>
+        </div>
+
+        <!-- New: Quick links to all legal pages -->
+        <div class="mt-10 grid md:grid-cols-2 gap-6">
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
+            <h3 class="text-lg font-semibold text-white mb-3">Consumer App</h3>
+            <ul class="space-y-2 text-primary">
+              <li><a class="hover:underline" href="legal/consumer/privacy.html">Privacy Policy (Consumer)</a></li>
+              <li><a class="hover:underline" href="legal/consumer/terms.html">Terms of Service (Consumer)</a></li>
+            </ul>
+          </div>
+          <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
+            <h3 class="text-lg font-semibold text-white mb-3">Partner App</h3>
+            <ul class="space-y-2 text-primary">
+              <li><a class="hover:underline" href="legal/partner/privacy.html">Privacy Policy (Partner)</a></li>
+              <li><a class="hover:underline" href="legal/partner/terms.html">Terms of Service (Partner)</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -245,8 +262,12 @@
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-zinc-500 gap-3">
       <div>&copy; 2025 <span class="text-primary">MealMiles</span>. All rights reserved.</div>
       <nav class="flex items-center gap-4 text-sm">
-        <a href="terms.html" class="hover:text-primary">Terms</a>
-        <a href="privacy.html" class="hover:text-primary">Privacy</a>
+        <!-- Consumer links as primary -->
+        <a href="legal/consumer/terms.html" class="hover:text-primary">Consumer Terms</a>
+        <a href="legal/consumer/privacy.html" class="hover:text-primary">Consumer Privacy</a>
+        <!-- Partner links for convenience -->
+        <a href="legal/partner/terms.html" class="hover:text-primary">Partner Terms</a>
+        <a href="legal/partner/privacy.html" class="hover:text-primary">Partner Privacy</a>
         <a href="#trust" class="hover:text-primary">Refunds & Policies</a>
         <a href="#contact" class="hover:text-primary">Support</a>
       </nav>
