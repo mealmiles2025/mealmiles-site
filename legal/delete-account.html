@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delete Your MealMiles Account</title>
+  <link rel="icon" href="../consumerAppIcon.png" type="image/png" />
+
+  <meta name="description" content="How to delete your MealMiles account and request deletion of associated data. Includes in-app steps, what is deleted vs retained, and how to submit a web request if you no longer have the app." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { primary:'#ea3c53', surface:'#181926', card:'#232337', muted:'#767680' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Minimal structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Delete Your MealMiles Account",
+    "url":"https://getmealmiles.com/legal/delete-account.html",
+    "publisher":{"@type":"Organization","name":"MealMiles Enterprises Limited","url":"https://getmealmiles.com"}
+  }
+  </script>
+</head>
+
+<body class="dark bg-surface text-gray-200">
+  <!-- Header -->
+  <header class="w-full bg-card/90 backdrop-blur border-b border-zinc-800">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2">
+        <img src="../consumerAppIcon.png" alt="MealMiles logo" class="h-9" />
+        <span class="text-xl font-bold text-primary">MealMiles</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-primary" href="../index.html#trust">Policies</a>
+        <a class="hover:text-primary" href="../index.html#contact">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pb-20">
+    <section class="bg-gradient-to-b from-[#232337] to-surface py-14">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Delete Your Account</h1>
+        <p class="text-zinc-300">
+          This page explains how to delete your MealMiles account and request deletion of associated data.
+          You can delete directly inside the app or submit a web request below.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mt-10 space-y-10">
+
+      <!-- In-app steps -->
+      <div class="bg-card rounded-2xl border border-zinc-800 p-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Delete Your Account in the App</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Consumer app (MealMiles)</h3>
+            <ol class="list-decimal list-inside space-y-2 text-zinc-300">
+              <li>Open the MealMiles app and sign in.</li>
+              <li>Go to <strong>Profile &rarr; Account</strong>.</li>
+              <li>Tap <strong>Delete Account</strong> and confirm.</li>
+            </ol>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Partner app (MealMiles Partner)</h3>
+            <ol class="list-decimal list-inside space-y-2 text-zinc-300">
+              <li>Open the Partner app and sign in.</li>
+              <li>Go to <strong>Account &rarr; Settings</strong>.</li>
+              <li>Tap <strong>Delete Account</strong> and confirm.</li>
+            </ol>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm text-zinc-400">
+          We may ask you to re-authenticate before deletion. Once submitted, deletion is queued and processed as
+          described below.
+        </p>
+      </div>
+
+      <!-- Web request -->
+      <div class="bg-card rounded-2xl border border-zinc-800 p-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Request Deletion Without the App</h2>
+        <p class="text-zinc-300">
+          If you no longer have the app installed, you can request deletion using our support form.
+          Please include the email and phone number associated with your MealMiles account so we can verify ownership.
+        </p>
+        <a
+          href="../index.html#contact"
+          class="inline-block mt-4 bg-primary text-white px-5 py-2 rounded-lg hover:bg-red-700 transition"
+        >
+          Open Support Form
+        </a>
+        <p class="mt-3 text-sm text-zinc-400">
+          If you prefer email, contact us via the form and we’ll reply from our support address with verification steps.
+        </p>
+      </div>
+
+      <!-- What’s deleted vs retained -->
+      <div class="bg-card rounded-2xl border border-zinc-800 p-6">
+        <h2 class="text-2xl font-bold text-white mb-4">What We Delete vs. Retain</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Deleted</h3>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300">
+              <li>Account profile (name, email, phone) and authentication identifiers.</li>
+              <li>Consumer loyalty profile (MealMiles points balance) and non-financial user preferences.</li>
+              <li>Device tokens used for push notifications.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Retained (legal or operational necessity)</h3>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300">
+              <li>
+                Transactional/financial records and receipts processed by
+                <strong>Stripe</strong> (and by restaurants as merchants of record) required for
+                accounting, audit, tax, fraud prevention, and chargeback purposes.
+              </li>
+              <li>
+                Order records may be retained or anonymized as required by law and/or restaurant obligations
+                (e.g., food safety, reconciliation).
+              </li>
+              <li>
+                Logs needed to demonstrate security, consent, and compliance may be retained for a limited period.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm text-zinc-400">
+          Retention is based on applicable laws and our legitimate interests (e.g., fraud prevention and financial
+          compliance). Retained data is restricted and not used for marketing after deletion.
+        </p>
+      </div>
+
+      <!-- Timeline / verification -->
+      <div class="bg-card rounded-2xl border border-zinc-800 p-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Timeline & Verification</h2>
+        <ul class="list-disc list-inside space-y-2 text-zinc-300">
+          <li><strong>Verification:</strong> We may ask you to confirm the request via a code or reply from the registered email/phone.</li>
+          <li><strong>Processing time:</strong> Most requests complete within <strong>7 days</strong>; complex financial/order reconciliations may take up to <strong>30 days</strong>.</li>
+          <li><strong>Subscriptions:</strong> MealMiles does not sell subscriptions; deleting your account does not cancel past charges with restaurants.</li>
+        </ul>
+      </div>
+
+      <!-- Questions -->
+      <div class="bg-card rounded-2xl border border-zinc-800 p-6">
+        <h2 class="text-2xl font-bold text-white mb-3">Questions</h2>
+        <p class="text-zinc-300">
+          If you have any questions about account deletion or data handling, contact us using the support form:
+        </p>
+        <a
+          href="../index.html#contact"
+          class="inline-block mt-4 bg-primary text-white px-5 py-2 rounded-lg hover:bg-red-700 transition"
+        >
+          Contact Support
+        </a>
+        <p class="mt-4 text-sm text-zinc-400">
+          For more details, see our
+          <a class="text-primary hover:underline" href="consumer/privacy.html">Consumer Privacy Policy</a> and
+          <a class="text-primary hover:underline" href="consumer/terms.html">Consumer Terms of Service</a>.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="bg-card border-t border-zinc-800 py-6 mt-12">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-zinc-500 gap-3">
+      <div>&copy; 2025 <span class="text-primary">MealMiles</span>. All rights reserved.</div>
+      <nav class="flex items-center gap-4 text-sm">
+        <a href="consumer/terms.html" class="hover:text-primary">Consumer Terms</a>
+        <a href="consumer/privacy.html" class="hover:text-primary">Consumer Privacy</a>
+        <a href="../index.html#contact" class="hover:text-primary">Support</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
