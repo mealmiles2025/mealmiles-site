@@ -7,7 +7,6 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0b0d12">
   <title>MealMiles • Terms & Conditions</title>
-
   <style>
     :root {
       --bg: #ffffff; --text: #0b0d12; --muted: #475569; --link: #2563eb;
@@ -43,7 +42,7 @@
   <div class="container">
     <header>
       <h1>Terms &amp; Conditions</h1>
-      <p class="muted">Last updated: <strong>2025-08-13</strong></p>
+      <p class="muted">Last updated: <strong>2025-08-25</strong></p>
     </header>
 
     <div class="card">
@@ -53,26 +52,58 @@
     <h2>Accounts</h2>
     <ul>
       <li>You are responsible for your account credentials and activity.</li>
-      <li>Partners must provide accurate business information and comply with applicable laws.</li>
+      <li>Partners must provide accurate business information and comply with all applicable laws and licenses.</li>
     </ul>
 
     <h2>Payments &amp; Fees</h2>
     <p>
-      Payments are processed by Stripe. MealMiles charges a platform/service fee of <strong>0.5%</strong>
-      per eligible transaction (unless otherwise agreed in writing). This fee is also shown in the in-app
-      Payment Details screen. We may update fees with reasonable notice.
+      Payments are processed exclusively by Stripe via <strong>Stripe Connect</strong>. 
+      MealMiles does not hold customer funds. Restaurants receive payouts directly to their Stripe account, 
+      less Stripe’s processing fees and MealMiles’ platform fee of <strong>0.5%</strong> (unless otherwise agreed).
+      We may update fees with reasonable notice.
     </p>
 
-    <h2>Acceptable Use</h2>
+    <h2>Prohibited Activities</h2>
+    <p>Partners may not use MealMiles to sell or promote:</p>
     <ul>
-      <li>No unlawful, fraudulent, infringing, or abusive activity.</li>
-      <li>No interference with security or performance of the service.</li>
+      <li>Illegal, fraudulent, or infringing goods or services.</li>
+      <li>Firearms, tobacco, cannabis, controlled substances, or related paraphernalia.</li>
+      <li>Alcohol without proper licensing.</li>
+      <li>Adult content or services.</li>
+      <li>Gambling, lotteries, or betting without authorization.</li>
+      <li>Any category restricted by <a href="https://stripe.com/restricted-businesses" target="_blank">Stripe’s Restricted Businesses</a>.</li>
     </ul>
+    <p>Violation may result in account suspension or termination.</p>
+
+    <h2>Refunds &amp; Chargebacks</h2>
+    <p>
+      Restaurants are primarily responsible for order quality, fulfillment, and refunds. 
+      However, as the platform, MealMiles remains liable to customers under Stripe’s policies. 
+      We may recover amounts from Partners if refunds, disputes, or chargebacks are caused by their actions.
+    </p>
+
+    <h2>Limitation of Liability</h2>
+    <p>
+      MealMiles is not responsible for food safety, restaurant service, delivery, or third-party conduct. 
+      To the maximum extent permitted by law, we disclaim all liability for indirect, incidental, or consequential damages.
+    </p>
+
+    <h2>Termination</h2>
+    <p>
+      We may suspend or terminate any account that violates these Terms, applicable law, or Stripe’s policies. 
+      Termination may result in forfeiture of access to the platform.
+    </p>
+
+    <h2>Governing Law</h2>
+    <p>
+      These Terms are governed by the laws of British Columbia, Canada (or update to Texas, USA if you prefer). 
+      Disputes will be resolved exclusively in the courts of that jurisdiction.
+    </p>
 
     <h2>Changes</h2>
     <p>
-      We may modify these Terms. We’ll update the “Last updated” date above and notify Partners of
-      material changes. Continued use after changes constitutes acceptance.
+      We may modify these Terms. We’ll update the “Last updated” date above and notify Partners of material changes. 
+      Continued use after changes constitutes acceptance.
     </p>
 
     <h2>Contact</h2>
@@ -80,7 +111,6 @@
 
     <footer>© <span id="y"></span> MealMiles. All rights reserved.</footer>
   </div>
-
   <script>
     (function () {
       const p = new URLSearchParams(location.search);
