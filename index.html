@@ -19,7 +19,7 @@
     }
   </script>
 
-  <!-- JSON-LD with minimal org info (no street/phone/email) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -35,6 +35,23 @@
     "logo":"https://getmealmiles.com/consumerAppIcon.png"
   }
   </script>
+
+  <style>
+    /* tiny helpers to mimic the /download page vibe */
+    .mm-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,.22);
+    }
+    .mm-badge {
+      background: linear-gradient(135deg, #EE517F, #6C72FF);
+      box-shadow: 0 6px 20px rgba(238,81,127,.25);
+    }
+    .mm-badge:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(238,81,127,.35);
+    }
+  </style>
 </head>
 
 <body class="dark bg-surface text-gray-200 font-sans antialiased">
@@ -43,7 +60,7 @@
   <header class="fixed w-full bg-card/90 backdrop-blur z-50 border-b border-zinc-800 shadow-lg">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
       <a href="index.html" class="flex items-center space-x-2">
-        <img src="consumerAppIcon.png" alt="MealMiles logo" class="h-10 w-auto" />
+        <img src="consumerAppIcon.png" alt="MealMiles logo" class="h-10 w-auto rounded-lg" />
         <span class="text-2xl font-bold text-primary tracking-wide">MealMiles</span>
       </a>
       <nav class="hidden md:flex space-x-8">
@@ -51,6 +68,7 @@
         <a href="#features" class="hover:text-primary transition">Features</a>
         <a href="#unified-deals" class="hover:text-primary transition">Unified Deals</a>
         <a href="#how-it-works" class="hover:text-primary transition">How It Works</a>
+        <a href="#download" class="hover:text-primary transition">Download App</a>
         <a href="#trust" class="hover:text-primary transition">Trust & Policies</a>
         <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Request a Demo</a>
       </nav>
@@ -65,6 +83,7 @@
       <a href="#features" class="block px-4 py-2 hover:bg-surface transition">Features</a>
       <a href="#unified-deals" class="block px-4 py-2 hover:bg-surface transition">Unified Deals</a>
       <a href="#how-it-works" class="block px-4 py-2 hover:bg-surface transition">How It Works</a>
+      <a href="#download" class="block px-4 py-2 hover:bg-surface transition">Download App</a>
       <a href="#trust" class="block px-4 py-2 hover:bg-surface transition">Trust & Policies</a>
       <a href="#contact" class="block px-4 py-2 text-white bg-primary hover:bg-red-700 rounded-lg transition">Request a Demo</a>
     </div>
@@ -82,8 +101,8 @@
           MealMiles gives your restaurant its own storefront in a single consumer app.
           Reward diners, unify deals, and offer frictionless pickup and table-side ordering—no new hardware.
         </p>
-        <a href="#contact" class="inline-block bg-primary text-white px-7 py-3 rounded-2xl text-lg font-semibold shadow hover:bg-red-700 transition mb-8">
-          Request a Demo
+        <a href="#download" class="inline-block bg-primary text-white px-7 py-3 rounded-2xl text-lg font-semibold shadow hover:bg-red-700 transition mb-8">
+          Download the App
         </a>
 
         <div class="w-full flex justify-center mt-6">
@@ -98,7 +117,62 @@
       </div>
     </section>
 
-    <!-- Why Loyalty, Features, Unified Deals, How It Works (keep your existing content) -->
+    <!-- Download (styled like /download) -->
+    <section id="download" class="py-16 bg-card">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-3 text-white text-center">Download the MealMiles App</h2>
+        <p class="text-zinc-300 text-center mb-8">Start earning points and redeeming rewards at participating restaurants.</p>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- iOS card -->
+          <div class="mm-card rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20"></span>
+              <span class="px-2 py-1 text-xs rounded-full bg-white/5 border border-white/10">iOS • Available</span>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-1">MealMiles for iPhone</h3>
+            <p class="text-zinc-300 mb-4">Earn points at participating restaurants and redeem them for deals and items. Works on iPhone and iPad.</p>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <!-- Replace href with real App Store URL when live -->
+              <a href="https://apps.apple.com/app/idXXXXXXXXXX" target="_blank" rel="noopener"
+                 class="mm-badge inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 transition will-change-transform">
+                <span class="inline-block w-5 h-5 rounded-md bg-black"></span>
+                <span class="leading-tight">
+                  <small class="block text-xs opacity-90">Download on the</small>
+                  <span class="text-sm font-semibold">App Store</span>
+                </span>
+              </a>
+
+              <a href="/download/" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 transition">
+                More options
+              </a>
+            </div>
+
+            <p class="text-sm text-zinc-400 mt-4">Tip: For printed QR codes, use <code>https://getmealmiles.com/download/</code>. We’ll update links there as stores go live.</p>
+          </div>
+
+          <!-- Android card -->
+          <div class="mm-card rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 ring-4 ring-amber-400/20"></span>
+              <span class="px-2 py-1 text-xs rounded-full bg-white/5 border border-white/10">Android • Coming Next Month</span>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-1">MealMiles for Android</h3>
+            <p class="text-zinc-300 mb-4">We’re putting the final touches on the Android app. Check back here—the Google Play link will appear the moment it’s live.</p>
+
+            <div class="inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-dashed border-white/20 bg-white/5 text-white/60">
+              <span class="inline-block w-5 h-5 rounded-md bg-black/70"></span>
+              <span class="text-sm">Google Play • Coming soon</span>
+            </div>
+
+            <p class="text-sm text-zinc-400 mt-4">Want an email when Android launches? <a href="mailto:support@getmealmiles.com" class="underline hover:text-white">Contact us</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Loyalty -->
     <section id="why-loyalty" class="py-20 bg-card">
       <div class="max-w-4xl mx-auto text-center px-4">
         <h2 class="text-3xl font-bold mb-10 text-white">Why Loyalty Matters for Your Restaurant</h2>
@@ -111,6 +185,7 @@
       </div>
     </section>
 
+    <!-- Features -->
     <section id="features" class="py-20 bg-surface">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12 text-white">Partner Benefits</h2>
@@ -125,6 +200,7 @@
       </div>
     </section>
 
+    <!-- Unified Deals -->
     <section id="unified-deals" class="py-20 bg-card">
       <div class="max-w-5xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-6 text-white">Unified Deals &amp; Offers</h2>
@@ -136,6 +212,7 @@
       </div>
     </section>
 
+    <!-- How It Works -->
     <section id="how-it-works" class="py-20 bg-surface">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-10 text-white">How It Works</h2>
@@ -199,7 +276,7 @@
           </div>
         </div>
 
-        <!-- New: Quick links to all legal pages -->
+        <!-- Quick links to legal pages -->
         <div class="mt-10 grid md:grid-cols-2 gap-6">
           <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
             <h3 class="text-lg font-semibold text-white mb-3">Consumer App</h3>
@@ -219,7 +296,7 @@
       </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- Demo CTA -->
     <section id="demo" class="py-20 text-center bg-card">
       <div class="max-w-2xl mx-auto px-4">
         <h2 class="text-3xl font-bold mb-4 text-white">Ready to Supercharge Sales & Efficiency?</h2>
@@ -228,7 +305,7 @@
       </div>
     </section>
 
-    <!-- Contact (form) -->
+    <!-- Contact -->
     <section id="contact" class="py-20 bg-surface">
       <div class="max-w-xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-6 text-white">Get in Touch</h2>
@@ -262,10 +339,8 @@
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-zinc-500 gap-3">
       <div>&copy; 2025 <span class="text-primary">MealMiles</span>. All rights reserved.</div>
       <nav class="flex items-center gap-4 text-sm">
-        <!-- Consumer links as primary -->
         <a href="legal/consumer/terms.html" class="hover:text-primary">Consumer Terms</a>
         <a href="legal/consumer/privacy.html" class="hover:text-primary">Consumer Privacy</a>
-        <!-- Partner links for convenience -->
         <a href="legal/partner/terms.html" class="hover:text-primary">Partner Terms</a>
         <a href="legal/partner/privacy.html" class="hover:text-primary">Partner Privacy</a>
         <a href="#trust" class="hover:text-primary">Refunds & Policies</a>
@@ -286,6 +361,12 @@
       requestAnimationFrame(()=>{ el.style.transition='opacity .25s'; el.style.opacity=1; });
       setTimeout(()=>{ el.style.opacity=0; setTimeout(()=>el.remove(),250); },4000);
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('mobile-menu-button').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+    });
   </script>
 
   <!-- Firebase + App Check + form handler -->
@@ -309,12 +390,8 @@
       isTokenAutoRefreshEnabled: true
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('mobile-menu-button').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-      });
-
-      const form=document.getElementById('contact-form');
+    const form=document.getElementById('contact-form');
+    if(form){
       form.addEventListener('submit', async e => {
         e.preventDefault();
         const data = {
@@ -337,7 +414,7 @@
           showToast('✅ Your inquiry has been sent!','success'); form.reset();
         } catch(err){ console.error(err); showToast('❌ Something went wrong. Please try again.','error'); }
       });
-    });
+    }
   </script>
 
   <!-- Minimal animation -->
