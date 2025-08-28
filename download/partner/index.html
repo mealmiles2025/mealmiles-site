@@ -1,16 +1,19 @@
+<!-- download/partner/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>MealMiles Partner – Download the Restaurant App</title>
+  <title>MealMiles Partner – Download the App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Download the MealMiles Partner app for restaurants. iOS available now, Android coming soon." />
+  <meta name="description" content="Download the MealMiles Partner app for restaurants. iOS available now; Android coming soon." />
 
-  <!-- Open Graph (link previews) -->
-  <meta property="og:title" content="MealMiles Partner – Download the Restaurant App" />
-  <meta property="og:description" content="Manage orders, points, deals, and payouts. iOS available now, Android coming soon." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="MealMiles Partner – Download the App" />
+  <meta property="og:description" content="iOS available now; Android coming soon." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="../../partnerAppIcon.png" />
+  <meta property="og:image" content="https://getmealmiles.com/consumerAppIcon.png" />
+
+  <link rel="icon" href="../../consumerAppIcon.png" type="image/png" />
 
   <style>
     :root{
@@ -18,7 +21,7 @@
       --card:#13141a;
       --muted:#8a8f98;
       --text:#f5f7fb;
-      --brand:#EE517F;
+      --brand:#EA3C53;
       --brand-2:#6C72FF;
     }
     *{box-sizing:border-box}
@@ -34,40 +37,80 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    .wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
-    header{display:flex;align-items:center;gap:14px;margin-bottom:28px}
-    header img{width:40px;height:40px;border-radius:10px}
-    h1{font-size:clamp(24px,3vw,32px);margin:0}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .hdr-inner{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{width:32px;height:32px;border-radius:8px}
+    .brand span{font-weight:800;font-size:18px;color:#fff}
+    .nav{display:flex;gap:14px;white-space:nowrap}
+    .nav a{color:#e5e7eb;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid transparent}
+    .nav a:hover{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+
+    /* Layout */
+    .wrap{max-width:960px;margin:0 auto;padding:28px 20px 64px}
+    header.page{display:flex;align-items:center;gap:14px;margin:10px 0 28px}
+    header.page img{width:40px;height:40px;border-radius:10px}
+    h1{font-size:clamp(24px, 3vw, 32px);margin:0}
     .lead{color:var(--muted);margin:6px 0 0 54px}
+
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:28px}
-    .card{grid-column:span 12;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.22)}
+    .card{
+      grid-column:span 12;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.22)
+    }
     @media (min-width:760px){.card{grid-column:span 6}}
+
     .card h2{margin:0 0 6px;font-size:20px}
     .card p{margin:8px 0 16px;color:var(--muted)}
     .row{display:flex;gap:12px;flex-wrap:wrap}
-
+    .note{margin-top:18px;font-size:13px;color:var(--muted)}
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.2px;background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.08)}
     .platform{display:flex;align-items:center;gap:10px;margin-bottom:12px}
     .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.15)}
     .dot.soon{background:#f39c12;box-shadow:0 0 0 4px rgba(243,156,18,.15)}
 
-    .badge{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;color:white;background:linear-gradient(135deg,var(--brand),var(--brand-2));border:1px solid rgba(255,255,255,.14);box-shadow:0 6px 20px rgba(238,81,127,.25);transition:transform .08s ease, box-shadow .2s ease}
-    .badge:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(238,81,127,.35)}
+    /* Buttons */
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:12px;text-decoration:none;color:#fff;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 6px 20px rgba(234,60,83,.25);
+      transition:transform .08s ease, box-shadow .2s ease;
+    }
+    .badge:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(234,60,83,.35)}
     .badge small{display:block;font-size:11px;line-height:1;opacity:.9}
     .badge span{display:block;font-weight:600;font-size:14px;line-height:1.05}
+
+    .store-icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:transparent;flex-shrink:0}
+    .store-icon img{display:block;width:20px;height:20px;border-radius:5px;object-fit:cover;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset}
+
     .ghost{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px dashed rgba(255,255,255,.18);color:var(--muted);text-decoration:none;background:rgba(255,255,255,.02)}
-    .store-icon{width:22px;height:22px;border-radius:6px;background:#111;display:inline-block}
-    .note{margin-top:18px;font-size:13px;color:var(--muted)}
-    .dim{opacity:.8}
+
     footer{margin-top:40px;color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
+
+  <!-- Minimal site header -->
+  <div class="site-header">
+    <div class="hdr-inner">
+      <a class="brand" href="../../index.html">
+        <img src="../../consumerAppIcon.png" alt="MealMiles logo">
+        <span>MealMiles</span>
+      </a>
+      <nav class="nav">
+        <a href="../../index.html">Home</a>
+        <a href="../index.html">Consumer App</a>
+      </nav>
+    </div>
+  </div>
+
   <div class="wrap">
-    <header>
-      <!-- Fallback to consumer icon if partner icon isn’t present -->
-      <img src="../../partnerAppIcon.png" alt="MealMiles Partner icon"
-           onerror="this.onerror=null;this.src='../../partnerAppIcon.png';" />
+    <header class="page">
+      <img src="../../partnerAppIcon.png" alt="Partner icon" />
       <div>
         <h1>MealMiles Partner</h1>
         <p class="lead">Download the MealMiles Partner app for restaurants.</p>
@@ -85,22 +128,19 @@
         <p>Manage orders, menus, deals, and loyalty points. Track payouts and performance in real time.</p>
 
         <div class="row">
-          <!-- TODO: Replace with the real App Store URL for the Partner app -->
-          <a class="badge" href="https://apps.apple.com/app/id6751176994" rel="noopener">
-            <span class="store-icon" aria-hidden="true"></span>
+          <!-- Replace with your real Partner app URL when live -->
+          <a class="badge" href="https://apps.apple.com/app/idXXXXXXXXXX" rel="noopener">
+            <span class="store-icon" aria-hidden="true">
+              <img src="../../partnerAppIcon.png" alt="">
+            </span>
             <div>
               <small>Download on the</small>
               <span>App Store</span>
             </div>
           </a>
-          <!-- Optional deep link (enable later if you have a scheme) -->
-          <!-- <a class="ghost" href="mealmiles-partner://open">Open in App (deep link)</a> -->
         </div>
 
-        <p class="note">
-          Tip: For printed QR codes that should go to the partner app, point to
-          <code>https://getmealmiles.com/download/partner/</code>. We’ll update this page as stores go live.
-        </p>
+        <p class="note">Tip: For printed QR codes that should go to the partner app, point to <code>https://getmealmiles.com/download/partner/</code>. We’ll update this page as stores go live.</p>
       </section>
 
       <!-- Android Card -->
@@ -116,7 +156,7 @@
           <span class="ghost" aria-disabled="true">Google Play • Coming soon</span>
         </div>
 
-        <p class="note dim">Want an email when Android launches? <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.</p>
+        <p class="note" style="opacity:.75">Want an email when Android launches? <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.</p>
       </section>
     </div>
 
@@ -126,14 +166,7 @@
   </div>
 
   <script>
-    // Auto-year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // OPTIONAL: enable Apple’s Smart App Banner for the Partner app when ready:
-    // const meta = document.createElement('meta');
-    // meta.name = 'apple-itunes-app';
-    // meta.content = 'app-id=XXXXXXXXXX';
-    // document.head.appendChild(meta);
   </script>
 </body>
 </html>
