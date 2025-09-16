@@ -129,6 +129,7 @@
         <p>Manage orders, menus, deals, and loyalty points. Track payouts and performance in real time.</p>
 
         <div class="row">
+          <!-- Use HTTPS to show the iOS App Store overlay instead of leaving Safari -->
           <a class="badge" href="https://apps.apple.com/app/id6751176994" rel="noopener">
             <span class="store-icon" aria-hidden="true">
               <img src="../../partnerAppIcon.png" alt="">
@@ -139,9 +140,9 @@
             </div>
           </a>
         </div>
-        <p class="note" style="opacity:.75">Questions?
-          <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.
-        </p>
+
+        <p class="note">Tip: For printed QR codes that should go to the partner app, point to
+          <code>https://getmealmiles.com/download/partner/</code>.</p>
       </section>
 
       <!-- Android Card -->
@@ -154,6 +155,7 @@
         <p>Get the Android app from Google Play.</p>
 
         <div class="row">
+          <!-- HTTPS keeps the user in the browser; 'market://' would jump to the Play Store app -->
           <a class="badge" href="https://play.google.com/store/apps/details?id=com.mealmiles.partner" rel="noopener">
             <span class="store-icon" aria-hidden="true">
               <img src="../../partnerAppIcon.png" alt="">
@@ -182,15 +184,14 @@
 
     // -------- Auto-redirect logic --------
     (function () {
-      // Deep links (iOS deep link uses itms-apps to open the App Store app)
-      const IOS_URL = 'itms-apps://itunes.apple.com/app/id6751176994';
-      const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.mealmiles.partner';
-
-      // Optional desktop-safe preview for iOS (not used unless you add a desktop override)
-      const IOS_WEB = 'https://apps.apple.com/app/id6751176994';
+      // Read optional mode:
+      //   mode=overlay (default) => stay in browser (iOS HTTPS, Android HTTPS)
+      //   mode=store           => open the store apps (iOS itms-apps, Android market://)
+      const params = new URLSearchParams(location.search);
+      const mode = (params.get('mode') || 'overlay').toLowerCase();
+      const openStoreApp = mode === 'store';
 
       // Allow "?noredirect=1" for testing
-      const params = new URLSearchParams(location.search);
       if (params.get('noredirect') === '1') return;
 
       // Avoid redirecting link scrapers / unfurlers
@@ -206,13 +207,21 @@
         /iPhone|iPad|iPod/i.test(ua) ||
         (/Macintosh/i.test(ua) && 'ontouchend' in document); // iPadOS
 
-      // Decide target
-      const target = isIOS ? IOS_URL : (isAndroid ? ANDROID_URL : null);
+      // URLs for each mode
+      const IOS_OVERLAY = 'https://apps.apple.com/app/id6751176994';
+      const IOS_STORE   = 'itms-apps://itunes.apple.com/app/id6751176994';
 
-      // Redirect (only if a URL exists for the detected platform)
-      if (target && target.trim().length > 0) {
+      const ANDROID_OVERLAY = 'https://play.google.com/store/apps/details?id=com.mealmiles.partner';
+      const ANDROID_STORE   = 'market://details?id=com.mealmiles.partner';
+
+      const target = isIOS
+        ? (openStoreApp ? IOS_STORE : IOS_OVERLAY)
+        : (isAndroid ? (openStoreApp ? ANDROID_STORE : ANDROID_OVERLAY) : null);
+
+      if (target && target.trim()) {
         setTimeout(function () {
-          window.location.replace(target);
+          // Single-page navigation (no new tab)
+          window.location.assign(target);
         }, 60);
       }
     })();
