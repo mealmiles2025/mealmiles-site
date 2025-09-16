@@ -5,11 +5,12 @@
   <meta charset="utf-8" />
   <title>MealMiles Partner – Download the App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Download the MealMiles Partner app for restaurants. iOS available now; Android coming soon." />
+  <meta name="description" content="Download the MealMiles Partner app for restaurants. iOS & Android available now." />
+  <meta name="referrer" content="no-referrer" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="MealMiles Partner – Download the App" />
-  <meta property="og:description" content="iOS available now; Android coming soon." />
+  <meta property="og:description" content="iOS & Android available now." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://getmealmiles.com/consumerAppIcon.png" />
 
@@ -128,7 +129,6 @@
         <p>Manage orders, menus, deals, and loyalty points. Track payouts and performance in real time.</p>
 
         <div class="row">
-          <!-- Replace with your real Partner app URL when live -->
           <a class="badge" href="https://apps.apple.com/app/id6751176994" rel="noopener">
             <span class="store-icon" aria-hidden="true">
               <img src="../../partnerAppIcon.png" alt="">
@@ -139,24 +139,35 @@
             </div>
           </a>
         </div>
-
-        <p class="note">Tip: For printed QR codes that should go to the partner app, point to <code>https://getmealmiles.com/download/partner/</code>. We’ll update this page as stores go live.</p>
+        <p class="note" style="opacity:.75">Questions?
+          <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.
+        </p>
       </section>
 
       <!-- Android Card -->
       <section class="card">
         <div class="platform">
-          <span class="dot soon" aria-hidden="true"></span>
-          <span class="pill">Android • Coming Soon</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="pill">Android • Available</span>
         </div>
         <h2>Partner App for Android</h2>
-        <p>Android is in progress and will launch in the coming months. This page will show the Google Play link the moment it’s live.</p>
+        <p>Get the Android app from Google Play.</p>
 
         <div class="row">
-          <span class="ghost" aria-disabled="true">Google Play • Coming soon</span>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.mealmiles.partner" rel="noopener">
+            <span class="store-icon" aria-hidden="true">
+              <img src="../../partnerAppIcon.png" alt="">
+            </span>
+            <div>
+              <small>Get it on</small>
+              <span>Google Play</span>
+            </div>
+          </a>
         </div>
 
-        <p class="note" style="opacity:.75">Want an email when Android launches? <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.</p>
+        <p class="note" style="opacity:.75">Questions?
+          <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.
+        </p>
       </section>
     </div>
 
@@ -166,7 +177,45 @@
   </div>
 
   <script>
+    // Year footer
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // -------- Auto-redirect logic --------
+    (function () {
+      // Deep links (iOS deep link uses itms-apps to open the App Store app)
+      const IOS_URL = 'itms-apps://itunes.apple.com/app/id6751176994';
+      const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.mealmiles.partner';
+
+      // Optional desktop-safe preview for iOS (not used unless you add a desktop override)
+      const IOS_WEB = 'https://apps.apple.com/app/id6751176994';
+
+      // Allow "?noredirect=1" for testing
+      const params = new URLSearchParams(location.search);
+      if (params.get('noredirect') === '1') return;
+
+      // Avoid redirecting link scrapers / unfurlers
+      const ua = navigator.userAgent || '';
+      const isBot = /facebookexternalhit|Twitterbot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|bot|crawler|spider/i.test(ua);
+      if (isBot) return;
+
+      // Platform detection
+      const uad = navigator.userAgentData;
+      const isAndroid = (uad && uad.platform === 'Android') || /Android/i.test(ua);
+      const isIOS =
+        (uad && uad.platform === 'iOS') ||
+        /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/i.test(ua) && 'ontouchend' in document); // iPadOS
+
+      // Decide target
+      const target = isIOS ? IOS_URL : (isAndroid ? ANDROID_URL : null);
+
+      // Redirect (only if a URL exists for the detected platform)
+      if (target && target.trim().length > 0) {
+        setTimeout(function () {
+          window.location.replace(target);
+        }, 60);
+      }
+    })();
   </script>
 </body>
 </html>
