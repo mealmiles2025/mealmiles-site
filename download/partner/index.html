@@ -20,10 +20,20 @@
     :root{
       --bg:#0b0c10;
       --card:#13141a;
-      --muted:#8a8f98;
+      --muted:#9aa0aa;
       --text:#f5f7fb;
       --brand:#EA3C53;
       --brand-2:#6C72FF;
+      --ring:rgba(255,255,255,.14);
+      --hair:rgba(255,255,255,.06);
+      --hair-2:rgba(255,255,255,.08);
+      --chip-bg:rgba(255,255,255,.10);
+
+      /* Fine-tune (in pixels) if you ever need to micro-adjust */
+      --nudge-ios-x: 0px;
+      --nudge-ios-y: 0.5px;   /* Apple looks low; nudge up a touch */
+      --nudge-and-x: 0px;
+      --nudge-and-y: 0px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -31,7 +41,7 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(108,114,255,.12), transparent 60%),
+        radial-gradient(1200px 650px at 10% -10%, rgba(108,114,255,.12), transparent 60%),
         radial-gradient(900px 500px at 100% 0%, rgba(238,81,127,.12), transparent 60%),
         var(--bg);
       color:var(--text);
@@ -40,57 +50,74 @@
     }
 
     /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .hdr-inner{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+    .hdr-inner{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{width:32px;height:32px;border-radius:8px}
     .brand span{font-weight:800;font-size:18px;color:#fff}
     .nav{display:flex;gap:14px;white-space:nowrap}
     .nav a{color:#e5e7eb;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid transparent}
-    .nav a:hover{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+    .nav a:hover{border-color:var(--hair);background:rgba(255,255,255,.05)}
 
     /* Layout */
-    .wrap{max-width:960px;margin:0 auto;padding:28px 20px 64px}
-    header.page{display:flex;align-items:center;gap:14px;margin:10px 0 28px}
-    header.page img{width:40px;height:40px;border-radius:10px}
-    h1{font-size:clamp(24px, 3vw, 32px);margin:0}
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 20px 64px}
+    header.page{display:flex;align-items:center;gap:14px;margin:10px 0 8px}
+    header.page img{width:44px;height:44px;border-radius:10px}
+    h1{font-size:clamp(26px, 3.2vw, 34px);margin:0}
     .lead{color:var(--muted);margin:6px 0 0 54px}
 
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:28px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:28px}
     .card{
       grid-column:span 12;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-      border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.22)
+      border:1px solid var(--hair);border-radius:20px;padding:22px 22px 20px;
+      box-shadow:0 10px 35px rgba(0,0,0,.22)
     }
     @media (min-width:760px){.card{grid-column:span 6}}
 
     .card h2{margin:0 0 6px;font-size:20px}
     .card p{margin:8px 0 16px;color:var(--muted)}
     .row{display:flex;gap:12px;flex-wrap:wrap}
-    .note{margin-top:18px;font-size:13px;color:var(--muted)}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.2px;background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.08)}
+    .note{margin-top:16px;font-size:13px;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.2px;background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--hair-2)}
     .platform{display:flex;align-items:center;gap:10px;margin-bottom:12px}
     .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.15)}
-    .dot.soon{background:#f39c12;box-shadow:0 0 0 4px rgba(243,156,18,.15)}
 
     /* Buttons */
     .badge{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 16px;border-radius:12px;text-decoration:none;color:#fff;
+      display:inline-flex;align-items:center;gap:12px;
+      padding:12px 16px;border-radius:14px;text-decoration:none;color:#fff;
       background:linear-gradient(135deg,var(--brand),var(--brand-2));
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid var(--ring);
       box-shadow:0 6px 20px rgba(234,60,83,.25);
-      transition:transform .08s ease, box-shadow .2s ease;
+      transition:transform .08s ease, box-shadow .2s ease, filter .2s ease;
     }
-    .badge:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(234,60,83,.35)}
-    .badge small{display:block;font-size:11px;line-height:1;opacity:.9}
-    .badge span{display:block;font-weight:600;font-size:14px;line-height:1.05}
+    .badge:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(234,60,83,.35)}
+    .badge:active{transform:translateY(0);filter:saturate(1.1)}
+    .badge small{display:block;font-size:11px;line-height:1;opacity:.95;margin-bottom:2px}
+    .badge span{display:block;font-weight:700;font-size:14px;line-height:1.05}
 
-    .store-icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:transparent;flex-shrink:0}
-    .store-icon img{display:block;width:20px;height:20px;border-radius:5px;object-fit:cover;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset}
+    /* Big circular icon chip */
+    .badge__chip{
+      width:36px;height:36px;border-radius:9999px;
+      display:grid;place-items:center; /* true centering */
+      background:var(--chip-bg);
+      box-shadow:0 0 0 1px rgba(255,255,255,.18) inset;
+      flex-shrink:0;
+      line-height:0;
+    }
+    .badge__svg{
+      width:26px;height:26px;display:block;
+      color:#ffffff;
+    }
+    .ios-nudge{transform:translate(var(--nudge-ios-x), var(--nudge-ios-y)); transform-box:fill-box; transform-origin:center;}
+    .and-nudge{transform:translate(var(--nudge-and-x), var(--nudge-and-y)); transform-box:fill-box; transform-origin:center;}
 
-    .ghost{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px dashed rgba(255,255,255,.18);color:var(--muted);text-decoration:none;background:rgba(255,255,255,.02)}
+    .tips{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .tips a{color:inherit;text-decoration:underline}
+    .tips .chip{border:1px dashed var(--hair-2);padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.02)}
 
     footer{margin-top:40px;color:var(--muted);font-size:13px}
+    .divider{height:1px;background:var(--hair);margin:30px 0}
   </style>
 </head>
 <body>
@@ -120,19 +147,22 @@
 
     <div class="grid">
       <!-- iOS Card -->
-      <section class="card">
+      <section class="card" aria-labelledby="ios-title">
         <div class="platform">
           <span class="dot" aria-hidden="true"></span>
           <span class="pill">iOS • Available</span>
         </div>
-        <h2>Partner App for iPhone &amp; iPad</h2>
+        <h2 id="ios-title">Partner App for iPhone &amp; iPad</h2>
         <p>Manage orders, menus, deals, and loyalty points. Track payouts and performance in real time.</p>
 
         <div class="row">
-          <!-- Use HTTPS to show the iOS App Store overlay instead of leaving Safari -->
-          <a class="badge" href="https://apps.apple.com/app/id6751176994" rel="noopener">
-            <span class="store-icon" aria-hidden="true">
-              <img src="../../partnerAppIcon.png" alt="">
+          <!-- HTTPS => in-browser overlay on iOS -->
+          <a class="badge" href="https://apps.apple.com/app/id6751176994" aria-label="Download on the App Store" rel="noopener">
+            <span class="badge__chip" aria-hidden="true">
+              <!-- Apple logo, centered; tiny optical nudge upward via CSS class -->
+              <svg class="badge__svg ios-nudge" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <path d="M16.365 12.552c.03 3.016 2.647 4.022 2.678 4.037-.021.066-.42 1.44-1.392 2.838-.84 1.2-1.722 2.436-3.084 2.46-1.206.024-1.971-.798-3.3-.798-1.317 0-2.154.774-3.3.81-1.335.036-2.346-1.164-3.192-2.355-1.734-2.448-3.066-6.912-1.296-9.96.9-1.548 2.487-2.517 4.212-2.553 1.317-.024 2.559.87 3.3.87.729 0 2.28-1.02 3.987-.876.672.012 2.559.27 3.768 2.052-.102.066-2.475 1.416-2.481 4.275zM14.244 3.33c.666-.81 1.128-1.944 1.008-3.03-1.008.042-2.235.642-2.955 1.47-.648.75-1.221 1.932-1.074 3.006 1.14.084 2.28-.57 3.021-1.446z" fill="currentColor"/>
+              </svg>
             </span>
             <div>
               <small>Download on the</small>
@@ -142,23 +172,26 @@
         </div>
 
         <p class="note">Tip: For printed QR codes that should go to the partner app, point to
-          <code>https://getmealmiles.com/download/partner/</code>.</p>
+          <code>https://getmealmiles.com/download/partner/</code>.
+        </p>
       </section>
 
       <!-- Android Card -->
-      <section class="card">
+      <section class="card" aria-labelledby="android-title">
         <div class="platform">
           <span class="dot" aria-hidden="true"></span>
           <span class="pill">Android • Available</span>
         </div>
-        <h2>Partner App for Android</h2>
+        <h2 id="android-title">Partner App for Android</h2>
         <p>Get the Android app from Google Play.</p>
 
         <div class="row">
-          <!-- HTTPS keeps the user in the browser; 'market://' would jump to the Play Store app -->
-          <a class="badge" href="https://play.google.com/store/apps/details?id=com.mealmiles.partner" rel="noopener">
-            <span class="store-icon" aria-hidden="true">
-              <img src="../../partnerAppIcon.png" alt="">
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.mealmiles.partner" aria-label="Get it on Google Play" rel="noopener">
+            <span class="badge__chip" aria-hidden="true">
+              <!-- Android robot, centered -->
+              <svg class="badge__svg and-nudge" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <path d="M7.1 6.2 5.7 4.1a.6.6 0 1 1 1-.6l1.5 2.2A8.7 8.7 0 0 1 12 4.9c1.55 0 3 .39 4.3 1l1.5-2.2a.6.6 0 1 1 1 .6l-1.4 2.1A7.5 7.5 0 0 1 20 11.2V17a1.9 1.9 0 0 1-1.9 1.9h-.7V21a1 1 0 0 1-2 0v-2.1H8.6V21a1 1 0 1 1-2 0v-2.1h-.7A1.9 1.9 0 0 1 4 17v-5.8c0-2.07 1.1-3.9 3.1-5zM9 9.5a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8zm6 0a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8z" fill="currentColor"/>
+              </svg>
             </span>
             <div>
               <small>Get it on</small>
@@ -167,10 +200,17 @@
           </a>
         </div>
 
-        <p class="note" style="opacity:.75">Questions?
+        <p class="note">Questions?
           <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.
         </p>
       </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="tips">
+      <div class="chip">Scanning a QR on iPhone shows an in-browser App Store card. Add <code>?mode=store</code> to force opening the App Store app.</div>
+      <div class="chip">On Android, <code>market://</code> deep links jump to Play Store. We default to the web Play page to keep users on this site.</div>
     </div>
 
     <footer>
@@ -179,27 +219,20 @@
   </div>
 
   <script>
-    // Year footer
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // -------- Auto-redirect logic --------
+    // -------- Auto-redirect logic (overlay/store modes) --------
     (function () {
-      // Read optional mode:
-      //   mode=overlay (default) => stay in browser (iOS HTTPS, Android HTTPS)
-      //   mode=store           => open the store apps (iOS itms-apps, Android market://)
       const params = new URLSearchParams(location.search);
       const mode = (params.get('mode') || 'overlay').toLowerCase();
       const openStoreApp = mode === 'store';
-
-      // Allow "?noredirect=1" for testing
       if (params.get('noredirect') === '1') return;
 
-      // Avoid redirecting link scrapers / unfurlers
       const ua = navigator.userAgent || '';
       const isBot = /facebookexternalhit|Twitterbot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|bot|crawler|spider/i.test(ua);
       if (isBot) return;
 
-      // Platform detection
       const uad = navigator.userAgentData;
       const isAndroid = (uad && uad.platform === 'Android') || /Android/i.test(ua);
       const isIOS =
@@ -207,10 +240,8 @@
         /iPhone|iPad|iPod/i.test(ua) ||
         (/Macintosh/i.test(ua) && 'ontouchend' in document); // iPadOS
 
-      // URLs for each mode
       const IOS_OVERLAY = 'https://apps.apple.com/app/id6751176994';
       const IOS_STORE   = 'itms-apps://itunes.apple.com/app/id6751176994';
-
       const ANDROID_OVERLAY = 'https://play.google.com/store/apps/details?id=com.mealmiles.partner';
       const ANDROID_STORE   = 'market://details?id=com.mealmiles.partner';
 
@@ -219,10 +250,7 @@
         : (isAndroid ? (openStoreApp ? ANDROID_STORE : ANDROID_OVERLAY) : null);
 
       if (target && target.trim()) {
-        setTimeout(function () {
-          // Single-page navigation (no new tab)
-          window.location.assign(target);
-        }, 60);
+        setTimeout(function () { window.location.assign(target); }, 60);
       }
     })();
   </script>
