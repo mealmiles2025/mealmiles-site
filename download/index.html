@@ -5,12 +5,12 @@
   <meta charset="utf-8" />
   <title>Get MealMiles – Download the App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Download the MealMiles consumer app. iOS available now; Android coming soon." />
+  <meta name="description" content="Download the MealMiles consumer app for iOS and Android." />
   <meta name="referrer" content="no-referrer" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Get MealMiles – Download the App" />
-  <meta property="og:description" content="Download the MealMiles consumer app. iOS available now; Android coming soon." />
+  <meta property="og:description" content="Download the MealMiles consumer app for iOS and Android." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://getmealmiles.com/consumerAppIcon.png" />
 
@@ -29,9 +29,8 @@
       --hair-2:rgba(255,255,255,.08);
       --chip-bg:rgba(255,255,255,.10);
 
-      /* Optical micro-adjust if ever needed */
       --nudge-ios-x: 0px;
-      --nudge-ios-y: 0.5px;   /* Apple looks low; nudge up a touch */
+      --nudge-ios-y: 0.5px;
       --nudge-and-x: 0px;
       --nudge-and-y: 0px;
     }
@@ -49,7 +48,6 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Header */
     .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
     .hdr-inner{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -59,7 +57,6 @@
     .nav a{color:#e5e7eb;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid transparent}
     .nav a:hover{border-color:var(--hair);background:rgba(255,255,255,.05)}
 
-    /* Layout */
     .wrap{max-width:1000px;margin:0 auto;padding:28px 20px 64px}
     header.page{display:flex;align-items:center;gap:14px;margin:10px 0 8px}
     header.page img{width:44px;height:44px;border-radius:10px}
@@ -83,7 +80,6 @@
     .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.15)}
     .dot.soon{background:#f39c12;box-shadow:0 0 0 4px rgba(243,156,18,.15)}
 
-    /* Buttons */
     .badge{
       display:inline-flex;align-items:center;gap:12px;
       padding:12px 16px;border-radius:14px;text-decoration:none;color:#fff;
@@ -97,7 +93,6 @@
     .badge small{display:block;font-size:11px;line-height:1;opacity:.95;margin-bottom:2px}
     .badge span{display:block;font-weight:700;font-size:14px;line-height:1.05}
 
-    /* Circular icon chip (crisp, centered) */
     .badge__chip{
       width:36px;height:36px;border-radius:9999px;
       display:grid;place-items:center;
@@ -148,7 +143,6 @@
         <p>Earn points at participating restaurants and redeem them for deals and items. Works on iPhone and iPad.</p>
 
         <div class="row">
-          <!-- HTTPS => shows the iOS App Store overlay in Safari/Chrome on iOS -->
           <a class="badge" href="https://apps.apple.com/app/id6746139210" aria-label="Download on the App Store" rel="noopener">
             <span class="badge__chip" aria-hidden="true">
               <!-- Apple logo -->
@@ -171,14 +165,14 @@
       <!-- Android Card -->
       <section class="card" aria-labelledby="and-title">
         <div class="platform">
-          <span class="dot soon" aria-hidden="true"></span>
-          <span class="pill">Android • Coming Soon</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="pill">Android • Available</span>
         </div>
         <h2 id="and-title">MealMiles for Android</h2>
-        <p>We’re putting the final touches on the Android app. Check back here—this page will show the Google Play link the moment it’s live.</p>
+        <p>Now available on Google Play.</p>
 
         <div class="row">
-          <span class="badge" aria-disabled="true" style="opacity:.55;cursor:not-allowed;filter:saturate(.9)">
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.mealmiles.app" aria-label="Get it on Google Play" rel="noopener">
             <span class="badge__chip" aria-hidden="true">
               <!-- Android robot icon -->
               <svg class="badge__svg and-nudge" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
@@ -186,15 +180,11 @@
               </svg>
             </span>
             <div>
-              <small>Google Play</small>
-              <span>Coming soon</span>
+              <small>Get it on</small>
+              <span>Google Play</span>
             </div>
-          </span>
+          </a>
         </div>
-
-        <p class="note" style="opacity:.8">Want an email when Android launches?
-          <a href="mailto:support@getmealmiles.com" style="color:inherit;text-decoration:underline">Contact us</a>.
-        </p>
       </section>
     </div>
 
@@ -207,45 +197,58 @@
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // -------- Auto-redirect logic (overlay/store modes) --------
+    // -------- Auto-redirect logic --------
     (function () {
-      // Query params:
-      //   mode=overlay (default) => stay in browser (iOS/Android HTTPS)
-      //   mode=store             => open the native store apps (iOS itms-apps, Android market://)
-      //   noredirect=1           => disable auto-redirect (for testing)
+      // Add ?noredirect=1 to bypass (useful for testing)
       const params = new URLSearchParams(location.search);
-      const mode = (params.get('mode') || 'overlay').toLowerCase();
-      const openStoreApp = mode === 'store';
       if (params.get('noredirect') === '1') return;
 
-      // Skip bots / link unfurlers
       const ua = navigator.userAgent || '';
-      const isBot = /facebookexternalhit|Twitterbot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|bot|crawler|spider/i.test(ua);
-      if (isBot) return;
-
-      // Platform detection
       const uad = navigator.userAgentData;
+
+      // Detect platforms
       const isAndroid = (uad && uad.platform === 'Android') || /Android/i.test(ua);
       const isIOS =
         (uad && uad.platform === 'iOS') ||
         /iPhone|iPad|iPod/i.test(ua) ||
         (/Macintosh/i.test(ua) && 'ontouchend' in document); // iPadOS
 
-      // iOS app (live)
-      const IOS_OVERLAY = 'https://apps.apple.com/app/id6746139210';
-      const IOS_STORE   = 'itms-apps://itunes.apple.com/app/id6746139210';
+      // Store links
+      const PLAY_PKG = 'com.mealmiles.app';
+      const ANDROID_STORE = 'market://details?id=' + PLAY_PKG; // opens Play Store app
+      const ANDROID_WEB   = 'https://play.google.com/store/apps/details?id=' + PLAY_PKG;
+      const IOS_WEB       = 'https://apps.apple.com/app/id6746139210';
+      const IOS_STORE     = 'itms-apps://itunes.apple.com/app/id6746139210';
 
-      // Android app (not live yet)
-      const ANDROID_OVERLAY = '';                // e.g. 'https://play.google.com/store/apps/details?id=com.mealmiles'
-      const ANDROID_STORE   = '';                // e.g. 'market://details?id=com.mealmiles'
+      // If Android: try to open the Play Store app; fall back to the web page.
+      if (isAndroid) {
+        // Some in-app browsers block market:// — try it, then fall back.
+        let fallbackTimer = setTimeout(function () {
+          // If we didn't switch out to the Play Store app, go to the web page.
+          window.location.replace(ANDROID_WEB);
+        }, 600);
 
-      const target = isIOS
-        ? (openStoreApp ? IOS_STORE : IOS_OVERLAY)
-        : (isAndroid ? (openStoreApp ? ANDROID_STORE : ANDROID_OVERLAY) : null);
+        // For Chrome & most webviews, this will attempt to open the Play Store app
+        window.location.href = ANDROID_STORE;
 
-      // Only redirect if we have a URL (Android is blank until launch)
-      if (target && target.trim()) {
-        setTimeout(function () { window.location.assign(target); }, 60);
+        // Extra safety: if the browser throws synchronously, just go to web.
+        try {
+          // no-op; if assignment above was blocked, the catch will run
+        } catch (e) {
+          clearTimeout(fallbackTimer);
+          window.location.replace(ANDROID_WEB);
+        }
+
+        return; // don't run iOS overlay redirect below
+      }
+
+      // Optional: auto-open the App Store app on iOS if you want that behavior.
+      // Here we keep the previous behavior: show the in-browser App Store page.
+      if (isIOS) {
+        // Uncomment the next line to open the App Store app directly instead:
+        // window.location.replace(IOS_STORE);
+        // Otherwise, show the overlay page in Safari/Chrome:
+        setTimeout(function(){ window.location.assign(IOS_WEB); }, 60);
       }
     })();
   </script>
