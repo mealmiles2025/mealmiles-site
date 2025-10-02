@@ -37,7 +37,7 @@
   </script>
 
   <style>
-    /* tiny helpers to mimic the /download page vibe */
+    /* cards + badges */
     .mm-card {
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
       border: 1px solid rgba(255,255,255,.06);
@@ -46,11 +46,20 @@
     .mm-badge {
       background: linear-gradient(135deg, #EE517F, #6C72FF);
       box-shadow: 0 6px 20px rgba(238,81,127,.25);
+      transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
     }
-    .mm-badge:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(238,81,127,.35);
+    .mm-badge:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(238,81,127,.35); }
+    .badge__chip{
+      width:36px;height:36px;border-radius:9999px;
+      display:grid;place-items:center;background:rgba(255,255,255,.10);
+      box-shadow:0 0 0 1px rgba(255,255,255,.18) inset;flex-shrink:0;line-height:0;
     }
+    .badge__svg{width:26px;height:26px;display:block;color:#ffffff}
+    .ios-nudge{transform:translate(0px, .5px); transform-box:fill-box; transform-origin:center;}
+    .and-nudge{transform:translate(0px, 0px); transform-box:fill-box; transform-origin:center;}
+
+    @keyframes fadein { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
+    .animate-fadein { animation: fadein .3s ease-out forwards }
   </style>
 </head>
 
@@ -64,9 +73,7 @@
         <span class="text-2xl font-bold text-primary tracking-wide">MealMiles</span>
       </a>
 
-      <!-- Desktop nav: tighten spacing + prevent wrapping -->
       <nav class="hidden md:flex items-center gap-6 flex-nowrap whitespace-nowrap">
-        <!-- Removed 'Why Loyalty' link for compactness -->
         <a href="#features" class="hover:text-primary transition text-sm">Features</a>
         <a href="#unified-deals" class="hover:text-primary transition text-sm">Unified Deals</a>
         <a href="#how-it-works" class="hover:text-primary transition text-sm">How It Works</a>
@@ -84,7 +91,7 @@
       </button>
     </div>
 
-    <!-- Mobile menu (keeps the section; just hides the 'Why Loyalty' link) -->
+    <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden bg-card shadow-lg hidden border-b border-zinc-800">
       <a href="#features" class="block px-4 py-2 hover:bg-surface transition">Features</a>
       <a href="#unified-deals" class="block px-4 py-2 hover:bg-surface transition">Unified Deals</a>
@@ -98,7 +105,7 @@
 
   <main class="pt-24 md:pt-28 pb-12">
 
-    <!-- Partner CTA banner at top -->
+    <!-- Partner CTA -->
     <section id="partner-cta" class="bg-card/70 border-b border-zinc-800">
       <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div class="flex items-center gap-3">
@@ -148,14 +155,14 @@
       </div>
     </section>
 
-    <!-- Download (styled like /download) -->
+    <!-- Download -->
     <section id="download" class="py-16 bg-card">
       <div class="max-w-5xl mx-auto px-4">
         <h2 class="text-3xl font-bold mb-3 text-white text-center">Download the MealMiles App</h2>
         <p class="text-zinc-300 text-center mb-8">Start earning points and redeeming rewards at participating restaurants.</p>
 
         <div class="grid gap-6 md:grid-cols-2">
-          <!-- iOS card -->
+          <!-- iOS -->
           <div class="mm-card rounded-2xl p-6">
             <div class="flex items-center gap-2 mb-3">
               <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20"></span>
@@ -164,40 +171,47 @@
             <h3 class="text-xl font-semibold text-white mb-1">MealMiles for iPhone</h3>
             <p class="text-zinc-300 mb-4">Earn points at participating restaurants and redeem them for deals and items. Works on iPhone and iPad.</p>
 
-            <div class="flex flex-wrap items-center gap-3">
-              <!-- Replace href with real App Store URL when live -->
-              <a href="https://apps.apple.com/app/id6746139210" target="_blank" rel="noopener"
-                 class="mm-badge inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 transition will-change-transform">
-                <span class="inline-block w-5 h-5 rounded-md bg-black"></span>
-                <span class="leading-tight">
-                  <small class="block text-xs opacity-90">Download on the</small>
-                  <span class="text-sm font-semibold">App Store</span>
-                </span>
-              </a>
-
-              <a href="download/" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 transition">
-                More options
-              </a>
-            </div>
+            <a href="https://apps.apple.com/app/id6746139210" target="_blank" rel="noopener"
+               class="mm-badge inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 will-change-transform">
+              <span class="badge__chip" aria-hidden="true">
+                <!-- Apple logo (inline) -->
+                <svg class="badge__svg ios-nudge" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                  <path d="M16.365 12.552c.03 3.016 2.647 4.022 2.678 4.037-.021.066-.42 1.44-1.392 2.838-.84 1.2-1.722 2.436-3.084 2.46-1.206.024-1.971-.798-3.3-.798-1.317 0-2.154.774-3.3.81-1.335.036-2.346-1.164-3.192-2.355-1.734-2.448-3.066-6.912-1.296-9.96.9-1.548 2.487-2.517 4.212-2.553 1.317-.024 2.559.87 3.3.87.729 0 2.28-1.02 3.987-.876.672.012 2.559.27 3.768 2.052-.102.066-2.475 1.416-2.481 4.275zM14.244 3.33c.666-.81 1.128-1.944 1.008-3.03-1.008.042-2.235.642-2.955 1.47-.648.75-1.221 1.932-1.074 3.006 1.14.084 2.28-.57 3.021-1.446z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="leading-tight">
+                <small class="block text-xs opacity-90">Download on the</small>
+                <span class="text-sm font-semibold">App Store</span>
+              </span>
+            </a>
 
             <p class="text-sm text-zinc-400 mt-4">Tip: For printed QR codes, use <code>https://getmealmiles.com/download/</code>. We’ll update links there as stores go live.</p>
           </div>
 
-          <!-- Android card -->
+          <!-- Android -->
           <div class="mm-card rounded-2xl p-6">
             <div class="flex items-center gap-2 mb-3">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 ring-4 ring-amber-400/20"></span>
-              <span class="px-2 py-1 text-xs rounded-full bg-white/5 border border-white/10">Android • Coming Next Month</span>
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20"></span>
+              <span class="px-2 py-1 text-xs rounded-full bg-white/5 border border-white/10">Android • Available</span>
             </div>
             <h3 class="text-xl font-semibold text-white mb-1">MealMiles for Android</h3>
-            <p class="text-zinc-300 mb-4">We’re putting the final touches on the Android app. Check back here—the Google Play link will appear the moment it’s live.</p>
+            <p class="text-zinc-300 mb-4">Get MealMiles on Google Play for fast pickup &amp; dine-in ordering and rewards.</p>
 
-            <div class="inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-dashed border-white/20 bg-white/5 text-white/60">
-              <span class="inline-block w-5 h-5 rounded-md bg-black/70"></span>
-              <span class="text-sm">Google Play • Coming soon</span>
-            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.mealmiles.app" target="_blank" rel="noopener"
+               class="mm-badge inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 will-change-transform">
+              <span class="badge__chip" aria-hidden="true">
+                <!-- Android robot (inline) -->
+                <svg class="badge__svg and-nudge" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                  <path d="M7.1 6.2 5.7 4.1a.6.6 0 1 1 1-.6l1.5 2.2A8.7 8.7 0 0 1 12 4.9c1.55 0 3 .39 4.3 1l1.5-2.2a.6.6 0 1 1 1 .6l-1.4 2.1A7.5 7.5 0 0 1 20 11.2V17a1.9 1.9 0 0 1-1.9 1.9h-.7V21a1 1 0 0 1-2 0v-2.1H8.6V21a1 1 0 1 1-2 0v-2.1h-.7A1.9 1.9 0 0 1 4 17v-5.8c0-2.07 1.1-3.9 3.1-5zM9 9.5a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8zm6 0a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="leading-tight">
+                <small class="block text-xs opacity-90">Get it on</small>
+                <span class="text-sm font-semibold">Google Play</span>
+              </span>
+            </a>
 
-            <p class="text-sm text-zinc-400 mt-4">Want an email when Android launches? <a href="mailto:support@getmealmiles.com" class="underline hover:text-white">Contact us</a>.</p>
+            <p class="text-sm text-zinc-400 mt-4">If a built-in browser blocks the Play Store, open the page menu (•••) and choose <em>Open in browser</em>, then try again.</p>
           </div>
         </div>
       </div>
@@ -307,7 +321,7 @@
           </div>
         </div>
 
-        <!-- Quick links to legal pages -->
+        <!-- Quick links -->
         <div class="mt-10 grid md:grid-cols-2 gap-6">
           <div class="bg-surface rounded-2xl p-6 border border-zinc-800">
             <h3 class="text-lg font-semibold text-white mb-3">Consumer App</h3>
@@ -447,11 +461,5 @@
       });
     }
   </script>
-
-  <!-- Minimal animation -->
-  <style>
-    @keyframes fadein { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
-    .animate-fadein { animation: fadein .3s ease-out forwards }
-  </style>
 </body>
 </html>
