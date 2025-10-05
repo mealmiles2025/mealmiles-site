@@ -210,8 +210,7 @@
     <div class="divider"></div>
 
     <div class="tips">
-      <div class="chip">Scanning a QR on iPhone shows an in-browser App Store card. Add <code>?mode=store</code> to force opening the App Store app.</div>
-      <div class="chip">On Android, <code>market://</code> deep links jump to Play Store. We default to the web Play page to keep users on this site.</div>
+      <div class="chip">This page won’t auto-open the App Store or Play Store. Tap a badge to download.</div>
     </div>
 
     <footer>
@@ -222,38 +221,7 @@
   <script>
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // -------- Auto-redirect logic (overlay/store modes) --------
-    (function () {
-      const params = new URLSearchParams(location.search);
-      const mode = (params.get('mode') || 'overlay').toLowerCase();
-      const openStoreApp = mode === 'store';
-      if (params.get('noredirect') === '1') return;
-
-      const ua = navigator.userAgent || '';
-      const isBot = /facebookexternalhit|Twitterbot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|bot|crawler|spider/i.test(ua);
-      if (isBot) return;
-
-      const uad = navigator.userAgentData;
-      const isAndroid = (uad && uad.platform === 'Android') || /Android/i.test(ua);
-      const isIOS =
-        (uad && uad.platform === 'iOS') ||
-        /iPhone|iPad|iPod/i.test(ua) ||
-        (/Macintosh/i.test(ua) && 'ontouchend' in document); // iPadOS
-
-      const IOS_OVERLAY = 'https://apps.apple.com/app/id6751176994';
-      const IOS_STORE   = 'itms-apps://itunes.apple.com/app/id6751176994';
-      const ANDROID_OVERLAY = 'https://play.google.com/store/apps/details?id=com.mealmiles.partner';
-      const ANDROID_STORE   = 'market://details?id=com.mealmiles.partner';
-
-      const target = isIOS
-        ? (openStoreApp ? IOS_STORE : IOS_OVERLAY)
-        : (isAndroid ? (openStoreApp ? ANDROID_STORE : ANDROID_OVERLAY) : null);
-
-      if (target && target.trim()) {
-        setTimeout(function () { window.location.assign(target); }, 60);
-      }
-    })();
+    // Auto-redirect removed to avoid unexpected navigations; users can tap the badges.
   </script>
 </body>
 </html>
