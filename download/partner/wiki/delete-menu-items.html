@@ -1,0 +1,170 @@
+<!-- download/partner/wiki/delete-menu-items.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Partner Wiki – How to delete menu items</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Delete sections or items from your menu in the Partner app." />
+  <meta name="referrer" content="no-referrer" />
+
+  <link rel="icon" href="../../../consumerAppIcon.png" type="image/png" />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#13141a;
+      --muted:#9aa0aa;
+      --text:#f5f7fb;
+      --brand:#EA3C53;
+      --hair:rgba(255,255,255,.08);
+      --hair-2:rgba(255,255,255,.12);
+      --link:#a8b4ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      background:
+        radial-gradient(1200px 650px at 10% -10%, rgba(108,114,255,.12), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(238,81,127,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+    .hdr-inner{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{width:32px;height:32px;border-radius:8px}
+    .brand span{font-weight:800;font-size:18px;color:#fff}
+    .nav{display:flex;gap:14px;white-space:nowrap}
+    .nav a{color:#e5e7eb;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid transparent}
+    .nav a:hover{border-color:var(--hair);background:rgba(255,255,255,.05)}
+
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 20px 64px}
+    header.page{display:flex;align-items:center;gap:14px;margin:10px 0 8px}
+    header.page img{width:44px;height:44px;border-radius:10px}
+    h1{font-size:clamp(26px, 3.2vw, 34px);margin:0}
+    .lead{color:var(--muted);margin:6px 0 0 54px}
+
+    .section{margin-top:26px;padding:22px;border:1px solid var(--hair);border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0))}
+    .section h2{margin:0 0 10px;font-size:20px}
+    .section p{color:var(--muted)}
+    .section ol{margin:10px 0 0 20px}
+
+    /* Two-column layout for steps and screenshots */
+    .how-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px}
+    @media (min-width:860px){.how-grid{grid-template-columns:1.1fr .9fr}}
+
+    /* Compact screenshot cards */
+    .shots{display:flex;flex-direction:column;gap:12px}
+    .img-wrap{border:1px solid var(--hair-2);border-radius:14px;overflow:hidden;background:#0f1015;max-width:175px}
+    .img-wrap img{display:block;width:100%;height:auto;cursor:zoom-in}
+    .caption{font-size:13px;color:var(--muted);padding:8px 10px;border-top:1px solid var(--hair)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:70}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(92vw,900px);max-height:92vh;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+    .lightbox .close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:1px solid var(--hair);color:#fff;border-radius:10px;padding:6px 10px;cursor:pointer}
+
+    footer{margin-top:40px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+
+  <div class="site-header">
+    <div class="hdr-inner">
+      <a class="brand" href="../../../index.html">
+        <img src="../../../consumerAppIcon.png" alt="MealMiles logo">
+        <span>MealMiles</span>
+      </a>
+      <nav class="nav">
+        <a href="../">Partner Download</a>
+        <a href="./">Wiki Home</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="page">
+      <img src="../../../partnerAppIcon.png" alt="Partner icon" />
+      <div>
+        <h1>How to delete menu items</h1>
+        <p class="lead">Delete entire sections or individual items from your menu.</p>
+      </div>
+    </header>
+
+    <section id="delete-menu-items" class="section" aria-labelledby="delete-title">
+      <h2 id="delete-title">Overview</h2>
+      <p>There are two ways to remove content from your menu: delete entire sections, or delete individual items.</p>
+
+      <h3>1) Delete an entire section</h3>
+      <div class="how-grid">
+        <div>
+          <ol>
+            <li>Open the Menu screen in the Partner app.</li>
+            <li>Tap the hamburger button at the top‑right to enter edit mode.</li>
+            <li>In edit mode, each section shows a trash icon. Tap the trash icon next to a section to delete it and all of its items.</li>
+          </ol>
+        </div>
+        <div class="shots">
+          <div class="img-wrap">
+            <img data-full="./images/01-enter-edit-mode-top-right.png" src="./images/01-enter-edit-mode-top-right.png" alt="Top‑right button to enter edit mode on the Menu screen">
+            <div class="caption">Tap the top‑right button to enter edit mode.</div>
+          </div>
+          <div class="img-wrap">
+            <img data-full="./images/02-section-trash-icons.png" src="./images/02-section-trash-icons.png" alt="Trash icons appear next to each section in edit mode">
+            <div class="caption">In edit mode, tap the trash icon to delete a section.</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px;">2) Delete an individual item</h3>
+      <div class="how-grid">
+        <div>
+          <ol>
+            <li>On the Menu screen, tap the three‑dot menu on the item.</li>
+            <li>Choose <em>Delete</em> from the action sheet to remove just that item.</li>
+          </ol>
+        </div>
+        <div class="shots">
+          <div class="img-wrap">
+            <img data-full="./images/03-item-more-menu-delete.png" src="./images/03-item-more-menu-delete.png" alt="Three‑dot menu on an item with Delete option">
+            <div class="caption">Use the item menu to delete a single item.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> MealMiles. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){
+      var lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.innerHTML = '<button class="close" aria-label="Close">Close</button><img alt="screenshot" />';
+      document.body.appendChild(lb);
+      var imgEl = lb.querySelector('img');
+      var close = function(){ lb.classList.remove('open'); imgEl.removeAttribute('src'); };
+      lb.addEventListener('click', function(e){ if(e.target === lb || e.target.classList.contains('close')) close(); });
+      document.querySelectorAll('.img-wrap img').forEach(function(th){
+        th.addEventListener('click', function(){
+          var full = th.getAttribute('data-full') || th.getAttribute('src');
+          imgEl.setAttribute('src', full);
+          lb.classList.add('open');
+        });
+      });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b0c10"/>
+      <stop offset="1" stop-color="#13141a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="80" y="100" width="1040" height="520" rx="28" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="100" y="150" fill="#e5e7eb" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="28">Edit mode – trash icons for sections</text>
+
+  <!-- section rows -->
+  <g fill="#ffffff" opacity="0.08">
+    <rect x="100" y="200" width="900" height="60" rx="14"/>
+    <rect x="100" y="280" width="900" height="60" rx="14"/>
+    <rect x="100" y="360" width="900" height="60" rx="14"/>
+  </g>
+
+  <!-- trash icons -->
+  <g fill="none" stroke="#EA3C53" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1020" y="214" width="40" height="40" rx="10" fill="#EA3C53" opacity="0.25"/>
+    <path d="M1032 230 h16 M1034 236 v14 a4 4 0 0 0 4 4 h12 a4 4 0 0 0 4 -4 v-14 M1040 236 v14 M1050 236 v14"/>
+
+    <rect x="1020" y="294" width="40" height="40" rx="10" fill="#EA3C53" opacity="0.25"/>
+    <path d="M1032 310 h16 M1034 316 v14 a4 4 0 0 0 4 4 h12 a4 4 0 0 0 4 -4 v-14 M1040 316 v14 M1050 316 v14"/>
+
+    <rect x="1020" y="374" width="40" height="40" rx="10" fill="#EA3C53" opacity="0.25"/>
+    <path d="M1032 390 h16 M1034 396 v14 a4 4 0 0 0 4 4 h12 a4 4 0 0 0 4 -4 v-14 M1040 396 v14 M1050 396 v14"/>
+  </g>
+
+  <text x="100" y="640" fill="#9aa0aa" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="18">Placeholder image – replace with real screenshot</text>
+</svg>
+
+

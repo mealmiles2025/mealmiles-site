@@ -1,0 +1,146 @@
+<!-- download/partner/wiki/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MealMiles Partner – Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Partner app wiki: guides and how‑tos for restaurants." />
+  <meta name="referrer" content="no-referrer" />
+
+  <link rel="icon" href="../../../consumerAppIcon.png" type="image/png" />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#13141a;
+      --muted:#9aa0aa;
+      --text:#f5f7fb;
+      --brand:#EA3C53;
+      --hair:rgba(255,255,255,.08);
+      --hair-2:rgba(255,255,255,.12);
+      --link:#a8b4ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      background:
+        radial-gradient(1200px 650px at 10% -10%, rgba(108,114,255,.12), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(238,81,127,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+    .hdr-inner{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{width:32px;height:32px;border-radius:8px}
+    .brand span{font-weight:800;font-size:18px;color:#fff}
+    .nav{display:flex;gap:14px;white-space:nowrap}
+    .nav a{color:#e5e7eb;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid transparent}
+    .nav a:hover{border-color:var(--hair);background:rgba(255,255,255,.05)}
+
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 20px 64px}
+    header.page{display:flex;align-items:center;gap:14px;margin:10px 0 8px}
+    header.page img{width:44px;height:44px;border-radius:10px}
+    h1{font-size:clamp(26px, 3.2vw, 34px);margin:0}
+    .lead{color:var(--muted);margin:6px 0 0 54px}
+
+    .toc{margin:18px 0 6px;padding:14px;border:1px dashed var(--hair);border-radius:12px;background:rgba(255,255,255,.02)}
+    .toc a{color:var(--link)}
+
+    .section{margin-top:26px;padding:22px;border:1px solid var(--hair);border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0))}
+    .section h2{margin:0 0 10px;font-size:20px}
+    .section p{color:var(--muted)}
+    .section ol{margin:10px 0 0 20px}
+
+    /* Two-column layout for steps and screenshots */
+    .how-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px}
+    @media (min-width:860px){.how-grid{grid-template-columns:1.1fr .9fr}}
+
+    /* Compact screenshot cards */
+    .shots{display:flex;flex-direction:column;gap:12px}
+    .img-wrap{border:1px solid var(--hair-2);border-radius:14px;overflow:hidden;background:#0f1015;max-width:200px}
+    .img-wrap img{display:block;width:100%;height:auto;cursor:zoom-in}
+    .caption{font-size:13px;color:var(--muted);padding:8px 10px;border-top:1px solid var(--hair)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:70}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(92vw,900px);max-height:92vh;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+    .lightbox .close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:1px solid var(--hair);color:#fff;border-radius:10px;padding:6px 10px;cursor:pointer}
+
+    footer{margin-top:40px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+
+  <div class="site-header">
+    <div class="hdr-inner">
+      <a class="brand" href="../../../index.html">
+        <img src="../../../consumerAppIcon.png" alt="MealMiles logo">
+        <span>MealMiles</span>
+      </a>
+      <nav class="nav">
+        <a href="../../partner/">Partner Download</a>
+        <a href="../">Back</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="page">
+      <img src="../../../partnerAppIcon.png" alt="Partner icon" />
+      <div>
+        <h1>Partner Wiki</h1>
+        <p class="lead">Search guides for the MealMiles Partner app.</p>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="wiki-home">
+      <h2 id="wiki-home">All guides</h2>
+      <div style="margin:10px 0 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input id="q" type="search" placeholder="Search guides (e.g. delete, payouts, orders)" 
+               style="flex:1 1 380px;min-width:240px;padding:10px 12px;border-radius:10px;border:1px solid var(--hair);background:rgba(255,255,255,.03);color:var(--text)" />
+        <button id="clear" style="padding:10px 12px;border-radius:10px;border:1px solid var(--hair);background:rgba(255,255,255,.06);color:#fff;cursor:pointer">Clear</button>
+      </div>
+
+      <div id="list" style="display:grid;grid-template-columns:1fr;gap:12px">
+        <a class="card" href="./delete-menu-items.html" data-title="How to delete menu items" style="text-decoration:none;color:inherit;border:1px solid var(--hair);border-radius:14px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0))">
+          <div style="font-weight:700">How to delete menu items</div>
+          <div style="font-size:13px;color:var(--muted)">Delete sections or individual items from your menu.</div>
+        </a>
+        <!-- Future guides can be appended here in the same format -->
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> MealMiles. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){
+      var input = document.getElementById('q');
+      var clear = document.getElementById('clear');
+      var items = Array.prototype.slice.call(document.querySelectorAll('#list [data-title]'));
+      var filter = function(){
+        var term = (input.value || '').trim().toLowerCase();
+        items.forEach(function(el){
+          var t = (el.getAttribute('data-title') || '').toLowerCase();
+          el.style.display = t.indexOf(term) !== -1 ? '' : 'none';
+        });
+      };
+      input.addEventListener('input', filter);
+      clear.addEventListener('click', function(){ input.value=''; filter(); input.focus(); });
+      filter();
+    })();
+  </script>
+</body>
+</html>
+
+

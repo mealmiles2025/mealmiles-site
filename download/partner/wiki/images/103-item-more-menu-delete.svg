@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b0c10"/>
+      <stop offset="1" stop-color="#13141a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="80" y="100" width="1040" height="520" rx="28" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="100" y="150" fill="#e5e7eb" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="28">Item actions – three‑dot menu</text>
+
+  <!-- item row -->
+  <rect x="100" y="220" width="940" height="70" rx="16" fill="#ffffff" opacity="0.08"/>
+  <g fill="#ffffff" opacity="0.8">
+    <circle cx="1010" cy="255" r="4"/>
+    <circle cx="1022" cy="255" r="4"/>
+    <circle cx="1034" cy="255" r="4"/>
+  </g>
+
+  <!-- action sheet -->
+  <rect x="380" y="310" width="440" height="210" rx="18" fill="#0f1015" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="400" y="360" fill="#a8b4ff" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="20">Mark as Unavailable</text>
+  <text x="400" y="400" fill="#e5e7eb" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="20">Edit</text>
+  <text x="400" y="440" fill="#ff6b6b" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="20">Delete</text>
+
+  <text x="100" y="640" fill="#9aa0aa" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="18">Placeholder image – replace with real screenshot</text>
+</svg>
+
+
