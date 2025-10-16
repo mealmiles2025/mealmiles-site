@@ -1,0 +1,313 @@
+<!-- download/partner/wiki/create-order.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Partner Wiki – Create an order and request payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="How restaurant partners can create an order, request payment, and how customers pay in the Consumer app." />
+  <meta name="referrer" content="no-referrer" />
+
+  <link rel="icon" href="../../../consumerAppIcon.png" type="image/png" />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#13141a;
+      --muted:#9aa0aa;
+      --text:#f5f7fb;
+      --brand:#EA3C53;
+      --hair:rgba(255,255,255,.08);
+      --hair-2:rgba(255,255,255,.12);
+      --link:#a8b4ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      background:
+        radial-gradient(1200px 650px at 10% -10%, rgba(108,114,255,.12), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(238,81,127,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(19,20,26,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+    .hdr-inner{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{width:32px;height:32px;border-radius:8px}
+    .brand span{font-weight:800;font-size:18px;color:#fff}
+    .nav{display:flex;gap:14px;white-space:nowrap}
+    .nav a{color:#e5e7eb;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid transparent}
+    .nav a:hover{border-color:var(--hair);background:rgba(255,255,255,.05)}
+
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 20px 64px}
+    header.page{display:flex;align-items:center;gap:14px;margin:10px 0 8px}
+    header.page img{width:44px;height:44px;border-radius:10px}
+    h1{font-size:clamp(26px, 3.2vw, 34px);margin:0}
+    .lead{color:var(--muted);margin:6px 0 0 54px}
+
+    .section{margin-top:26px;padding:22px;border:1px solid var(--hair);border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0))}
+    .section h2{margin:0 0 10px;font-size:20px}
+    .section p{color:var(--muted)}
+    .section ol{margin:10px 0 0 20px}
+
+    /* Two-column layout for steps and screenshots */
+    .how-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px}
+    @media (min-width:860px){.how-grid{grid-template-columns:1.1fr .9fr}}
+
+    /* Step-by-step pairing layout */
+    .steps{display:flex;flex-direction:column;gap:22px;margin-top:12px}
+    .step-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+    @media (max-width:859px){.step-grid{grid-template-columns:1fr}}
+    .step-title{display:flex;align-items:center;font-weight:800;margin:0 0 6px}
+    .step-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;font-size:13px;margin-right:8px}
+    .next{margin-top:12px}
+    .next a{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid var(--hair);background:rgba(255,255,255,.06);color:#fff;text-decoration:none}
+    .next a:hover{background:rgba(255,255,255,.1)}
+
+    /* Compact screenshot cards */
+    .shots{display:flex;flex-direction:column;gap:12px}
+    .img-wrap{border:1px solid var(--hair-2);border-radius:14px;overflow:hidden;background:#0f1015;max-width:200px}
+    .img-wrap img{display:block;width:100%;height:auto;cursor:zoom-in}
+    .caption{font-size:13px;color:var(--muted);padding:8px 10px;border-top:1px solid var(--hair)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:70}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(92vw,900px);max-height:92vh;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+    .lightbox .close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:1px solid var(--hair);color:#fff;border-radius:10px;padding:6px 10px;cursor:pointer}
+
+    footer{margin-top:40px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+
+  <div class="site-header">
+    <div class="hdr-inner">
+      <a class="brand" href="../../../index.html">
+        <img src="../../../consumerAppIcon.png" alt="MealMiles logo">
+        <span>MealMiles</span>
+      </a>
+      <nav class="nav">
+        <a href="../">Wiki Home</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="page">
+      <img src="../../../partnerAppIcon.png" alt="Partner icon" />
+      <div>
+        <h1>Create an order and request payment</h1>
+        <p class="lead">Step‑by‑step guide for creating an order in the Partner app, requesting payment, and how the customer completes checkout in the Consumer app.</p>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="prereqs">
+      <h2 id="prereqs">Requirements</h2>
+      <ul>
+        <li>The customer must already have a MealMiles Consumer app account.</li>
+        <li>The email you enter must match the customer’s Consumer app email exactly.</li>
+        <li>Only items payable with money can be added; items redeemable by points cannot be added to partner‑created orders.</li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="create-order">
+      <h2 id="create-order">Create an order in the Partner app</h2>
+      <div class="steps">
+        <div id="s1" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">1</span>Enter customer details and order type</div>
+            <ul>
+              <li>Open the Orders tab and tap the <strong>+</strong> button.</li>
+              <li>Enter the customer’s <strong>Email Address</strong>.</li>
+              <li>If the account exists, <strong>Customer Name</strong> autofills; otherwise you cannot create an order for that email.</li>
+              <li>(Optional) Add the customer’s <strong>Phone Number</strong>.</li>
+              <li>Select <strong>Dine‑in</strong> or <strong>Pickup</strong>. For Dine‑in, enter the <strong>Table Number</strong>.</li>
+              <li>(Optional) Add <strong>Server Name</strong> under Staff Information.</li>
+            </ul>
+            <div class="next"><a href="#s2" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/10-create-order-customer-info.png" src="./images/10-create-order-customer-info.png" alt="Create Order screen showing customer email, name autofilled, phone, and order type">
+              <div class="caption">Enter email; name autofills if the account exists.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="s2" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">2</span>Add items</div>
+            <ul>
+              <li>Tap <strong>Add Item</strong> and choose items.</li>
+              <li>Only items payable with money can be added (no points‑redeemable items).</li>
+              <li>Adjust quantities as needed.</li>
+              <li>(Optional) Add <strong>Special Instructions</strong>.</li>
+            </ul>
+            <div class="next"><a href="#s3" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/11-create-order-items.png" src="./images/11-create-order-items.png" alt="Create Order screen showing items with plus minus controls and notes">
+              <div class="caption">Add only items payable with money; adjust quantities; add notes.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="s3" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">3</span>Review and create the order</div>
+            <ul>
+              <li>Review the <strong>Order Summary</strong>.</li>
+              <li>Tap <strong>Create Order</strong>.</li>
+            </ul>
+            <div class="next"><a href="#s4" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/12-create-order-summary.png" src="./images/12-create-order-summary.png" alt="Order summary and Create Order button">
+              <div class="caption">Review the summary and create the order.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="s4" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">4</span>Find the order in Active Orders</div>
+            <ul>
+              <li>After creation, the order appears in the <strong>Orders</strong> tab under <strong>Active</strong>.</li>
+            </ul>
+            <div class="next"><a href="#s5" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/13-orders-list-active.png" src="./images/13-orders-list-active.png" alt="Orders tab showing the newly created active order card">
+              <div class="caption">The order appears under Active Orders.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="request-payment">
+      <h2 id="request-payment">Request payment</h2>
+      <div class="steps">
+        <div id="s5" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">5</span>Open the order and tap Request Payment</div>
+            <ul>
+              <li>Open the order from <strong>Active Orders</strong>.</li>
+              <li>Review details; use <strong>Edit Order</strong> if needed.</li>
+              <li>Tap <strong>Request Payment</strong>.</li>
+            </ul>
+            <div class="next"><a href="#s6" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/20-order-details-actions.png" src="./images/20-order-details-actions.png" alt="Order details with Edit, Cancel, Request Payment, and Complete buttons">
+              <div class="caption">Request payment from the order details screen.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="s6" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">6</span>Choose Request in App</div>
+            <ul>
+              <li>In the dialog, select <strong>Request in App</strong> to notify the customer.</li>
+              <li>Confirm your choice.</li>
+            </ul>
+            <div class="next"><a href="#s7" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/21-request-payment-dialog.png" src="./images/21-request-payment-dialog.png" alt="Request Payment modal with Request in App option">
+              <div class="caption">Choose Request in App to send the customer a checkout prompt.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="s7" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">7</span>Payment requested</div>
+            <ul>
+              <li>The order shows <strong>Payment requested — In App</strong>.</li>
+              <li>Editing is disabled until the order is paid or cancelled.</li>
+            </ul>
+            <div class="next"><a href="#s8" aria-label="Next step">Next →</a></div>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/22-payment-requested-banner.png" src="./images/22-payment-requested-banner.png" alt="Order details showing Payment requested — In App banner">
+              <div class="caption">Payment requested — editing disabled.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:12px;color:var(--muted)">After you request payment, the customer receives an email and will see the order as <strong>Awaiting Payment</strong> in the Consumer app.</p>
+    </section>
+
+    <section class="section" aria-labelledby="customer-flow">
+      <h2 id="customer-flow">How the customer pays (Consumer app)</h2>
+      <div class="steps">
+        <div id="s8" class="step-grid">
+          <div>
+            <div class="step-title"><span class="step-num">8</span>Customer checks out in the Consumer app</div>
+            <ul>
+              <li>The customer signs in with the same email.</li>
+              <li>On <strong>Orders</strong>, they see <strong>AWAITING_PAYMENT</strong> and tap <strong>Go to Checkout</strong>.</li>
+              <li>They complete payment via the standard checkout flow. The order updates to <strong>Paid</strong>.</li>
+            </ul>
+          </div>
+          <div class="shots">
+            <div class="img-wrap">
+              <img data-full="./images/30-consumer-orders-awaiting.png" src="./images/30-consumer-orders-awaiting.png" alt="Consumer app Orders list with Awaiting Payment and Go to Checkout button">
+              <div class="caption">Awaiting Payment with Go to Checkout.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tips">
+      <h2 id="tips">Tips & notes</h2>
+      <ul>
+        <li>If the email is mistyped or not registered, the name will not autofill and the order cannot be created. Ask the customer to sign up in the Consumer app first.</li>
+        <li>Pickup orders do not require a table number.</li>
+        <li>You can cancel an order before it is paid. Paid orders should be refunded instead of cancelled.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> MealMiles. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){
+      var lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.innerHTML = '<button class="close" aria-label="Close">Close</button><img alt="screenshot" />';
+      document.body.appendChild(lb);
+      var imgEl = lb.querySelector('img');
+      var close = function(){ lb.classList.remove('open'); imgEl.removeAttribute('src'); };
+      lb.addEventListener('click', function(e){ if(e.target === lb || e.target.classList.contains('close')) close(); });
+      document.querySelectorAll('.img-wrap img').forEach(function(th){
+        th.addEventListener('click', function(){
+          var full = th.getAttribute('data-full') || th.getAttribute('src');
+          imgEl.setAttribute('src', full);
+          lb.classList.add('open');
+        });
+      });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
+
+
