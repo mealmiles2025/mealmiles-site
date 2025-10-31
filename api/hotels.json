@@ -1,43 +1,37 @@
 [
-  {
-    "id": 1,
-    "name": "Aurora Lodge",
-    "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg",
-    "city": "Vancouver",
-    "price": 189.0,
-    "rating": 4.5
-  },
-  {
-    "id": 2,
-    "name": "Seaside Escape",
-    "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg",
-    "city": "Santa Monica",
-    "price": 249.0,
-    "rating": 4.7
-  },
-  {
-    "id": 3,
-    "name": "Cityscape Inn",
-    "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg",
-    "city": "Seattle",
-    "price": 159.0,
-    "rating": 4.3
-  },
-  {
-    "id": 4,
-    "name": "Mountain Retreat",
-    "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg",
-    "city": "Aspen",
-    "price": 299.0,
-    "rating": 4.8
-  },
-  {
-    "id": 5,
-    "name": "Desert Mirage",
-    "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg",
-    "city": "Phoenix",
-    "price": 139.0,
-    "rating": 4.1
-  }
+  { "id": 1, "name": "Aurora Lodge (Page 1) - 1", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 189.0, "rating": 4.5 },
+  { "id": 2, "name": "Seaside Escape (Page 1) - 2", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 249.0, "rating": 4.7 },
+  { "id": 3, "name": "Cityscape Inn (Page 1) - 3", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 159.0, "rating": 4.3 },
+  { "id": 4, "name": "Mountain Retreat (Page 1) - 4", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 299.0, "rating": 4.8 },
+  { "id": 5, "name": "Desert Mirage (Page 1) - 5", "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg", "city": "Phoenix", "price": 139.0, "rating": 4.1 },
+  { "id": 6, "name": "Aurora Lodge (Page 1) - 6", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 190.0, "rating": 4.6 },
+  { "id": 7, "name": "Seaside Escape (Page 1) - 7", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 250.0, "rating": 4.8 },
+  { "id": 8, "name": "Cityscape Inn (Page 1) - 8", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 160.0, "rating": 4.4 },
+  { "id": 9, "name": "Mountain Retreat (Page 1) - 9", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 300.0, "rating": 4.9 },
+  { "id": 10, "name": "Desert Mirage (Page 1) - 10", "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg", "city": "Phoenix", "price": 140.0, "rating": 4.2 },
+  { "id": 11, "name": "Aurora Lodge (Page 1) - 11", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 191.0, "rating": 4.7 },
+  { "id": 12, "name": "Seaside Escape (Page 1) - 12", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 251.0, "rating": 4.9 },
+  { "id": 13, "name": "Cityscape Inn (Page 1) - 13", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 161.0, "rating": 4.5 },
+  { "id": 14, "name": "Mountain Retreat (Page 1) - 14", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 301.0, "rating": 5.0 },
+  { "id": 15, "name": "Desert Mirage (Page 1) - 15", "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg", "city": "Phoenix", "price": 141.0, "rating": 4.3 },
+  { "id": 16, "name": "Aurora Lodge (Page 1) - 16", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 192.0, "rating": 4.5 },
+  { "id": 17, "name": "Seaside Escape (Page 1) - 17", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 252.0, "rating": 4.7 },
+  { "id": 18, "name": "Cityscape Inn (Page 1) - 18", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 162.0, "rating": 4.3 },
+  { "id": 19, "name": "Mountain Retreat (Page 1) - 19", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 302.0, "rating": 4.8 },
+  { "id": 20, "name": "Desert Mirage (Page 1) - 20", "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg", "city": "Phoenix", "price": 142.0, "rating": 4.1 },
+  { "id": 21, "name": "Aurora Lodge (Page 1) - 21", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 193.0, "rating": 4.6 },
+  { "id": 22, "name": "Seaside Escape (Page 1) - 22", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 253.0, "rating": 4.8 },
+  { "id": 23, "name": "Cityscape Inn (Page 1) - 23", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 163.0, "rating": 4.4 },
+  { "id": 24, "name": "Mountain Retreat (Page 1) - 24", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 303.0, "rating": 4.9 },
+  { "id": 25, "name": "Desert Mirage (Page 1) - 25", "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg", "city": "Phoenix", "price": 143.0, "rating": 4.2 },
+  { "id": 26, "name": "Aurora Lodge (Page 1) - 26", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 194.0, "rating": 4.7 },
+  { "id": 27, "name": "Seaside Escape (Page 1) - 27", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 254.0, "rating": 4.9 },
+  { "id": 28, "name": "Cityscape Inn (Page 1) - 28", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 164.0, "rating": 4.5 },
+  { "id": 29, "name": "Mountain Retreat (Page 1) - 29", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 304.0, "rating": 5.0 },
+  { "id": 30, "name": "Desert Mirage (Page 1) - 30", "thumbnailUrl": "https://getmealmiles.com/images/hotels/desert-mirage.jpg", "city": "Phoenix", "price": 144.0, "rating": 4.3 },
+  { "id": 31, "name": "Aurora Lodge (Page 1) - 31", "thumbnailUrl": "https://getmealmiles.com/images/hotels/aurora-lodge.jpg", "city": "Vancouver", "price": 195.0, "rating": 4.5 },
+  { "id": 32, "name": "Seaside Escape (Page 1) - 32", "thumbnailUrl": "https://getmealmiles.com/images/hotels/seaside-escape.jpg", "city": "Santa Monica", "price": 255.0, "rating": 4.7 },
+  { "id": 33, "name": "Cityscape Inn (Page 1) - 33", "thumbnailUrl": "https://getmealmiles.com/images/hotels/cityscape-inn.jpg", "city": "Seattle", "price": 165.0, "rating": 4.3 },
+  { "id": 34, "name": "Mountain Retreat (Page 1) - 34", "thumbnailUrl": "https://getmealmiles.com/images/hotels/mountain-retreat.jpg", "city": "Aspen", "price": 305.0, "rating": 4.8 }
 ]
 
