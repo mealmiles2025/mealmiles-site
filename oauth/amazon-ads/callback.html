@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ede9e1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <title>Amazon Ads authorization — MealMiles</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20211e;
+      --muted: #62645e;
+      --canvas: #ede9e1;
+      --paper: #f6f3ed;
+      --moss: #52604d;
+      --line: rgba(32, 33, 30, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem clamp(1.25rem, 4vw, 4.5rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    header a {
+      color: inherit;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    main {
+      display: grid;
+      min-height: calc(100svh - 5rem);
+      place-items: center;
+      padding: 2rem 1.25rem;
+    }
+
+    .card {
+      width: min(100%, 42rem);
+      padding: clamp(2rem, 6vw, 4.5rem);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 1.5rem 5rem rgba(32, 33, 30, 0.08);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+      color: var(--moss);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status::before {
+      width: 0.62rem;
+      height: 0.62rem;
+      border-radius: 50%;
+      background: currentColor;
+      content: "";
+    }
+
+    .status.error { color: #9a3e31; }
+
+    h1 {
+      max-width: 12ch;
+      margin: 0 0 1.25rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    p + p { margin-top: 1rem; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    button,
+    .home-link {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.1rem;
+      border: 1px solid var(--ink);
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button {
+      background: var(--ink);
+      color: white;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .home-link {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .detail {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      overflow-wrap: anywhere;
+    }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">MealMiles</a>
+    <a href="/legal/amazon-ads/privacy.html">Privacy</a>
+  </header>
+
+  <main>
+    <section class="card" aria-live="polite">
+      <div class="status" id="status">Checking response</div>
+      <h1 id="title">Completing authorization</h1>
+      <p id="message">Please wait while the Amazon authorization response is checked.</p>
+      <p id="instruction" hidden>Copy the authorization response, return to Terminal, and paste it when the local helper asks. This temporary response expires quickly.</p>
+
+      <div class="actions">
+        <button id="copy" type="button" disabled>Copy authorization response</button>
+        <a class="home-link" href="/">Return home</a>
+      </div>
+
+      <p class="detail" id="detail" hidden></p>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code") || "";
+      const state = params.get("state") || "";
+      const error = params.get("error") || "";
+      const errorDescription = params.get("error_description") || "";
+
+      if (window.location.search) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      const status = document.getElementById("status");
+      const title = document.getElementById("title");
+      const message = document.getElementById("message");
+      const instruction = document.getElementById("instruction");
+      const copy = document.getElementById("copy");
+      const detail = document.getElementById("detail");
+
+      if (error) {
+        status.textContent = "Authorization not completed";
+        status.classList.add("error");
+        title.textContent = "Amazon did not authorize access";
+        message.textContent = errorDescription || "The authorization request was declined or could not be completed.";
+        detail.textContent = `Error: ${error}`;
+        detail.hidden = false;
+        return;
+      }
+
+      if (!code || !state) {
+        status.textContent = "No authorization response";
+        status.classList.add("error");
+        title.textContent = "Nothing to complete yet";
+        message.textContent = "Start authorization from the MealMiles local helper. Amazon will return here after access is approved.";
+        return;
+      }
+
+      const response = JSON.stringify({ code, state });
+      status.textContent = "Authorization approved";
+      title.textContent = "Amazon returned successfully";
+      message.textContent = "The temporary authorization response was received and removed from the browser address bar.";
+      instruction.hidden = false;
+      copy.disabled = false;
+
+      copy.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(response);
+          copy.textContent = "Copied";
+        } catch {
+          detail.textContent = response;
+          detail.hidden = false;
+          copy.textContent = "Select response below";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
