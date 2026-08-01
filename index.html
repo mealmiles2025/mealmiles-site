@@ -783,6 +783,18 @@
       text-transform: uppercase;
     }
 
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.75rem 1.5rem;
+    }
+
+    .site-footer a {
+      color: #d5dbd1;
+      text-underline-offset: 0.3rem;
+    }
+
     .reveal {
       opacity: 0;
       transform: translateY(1.5rem);
@@ -892,6 +904,10 @@
 
       .site-footer {
         grid-template-columns: 1fr;
+      }
+
+      .footer-meta {
+        justify-content: flex-start;
       }
     }
 
@@ -1064,7 +1080,10 @@
 
   <footer class="site-footer">
     <span>© <span id="year">2026</span> MealMiles Enterprises Limited</span>
-    <span>Thoughtful objects for everyday spaces</span>
+    <span class="footer-meta">
+      <span>Thoughtful objects for everyday spaces</span>
+      <a href="/legal/amazon-ads/privacy.html">Amazon Ads Privacy</a>
+    </span>
   </footer>
 
   <script>
